@@ -1,0 +1,30 @@
+.menu {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+}
+
+h1 {
+    font-family: 'Carter One', cursive;
+    font-size: 4rem !important;
+    padding-bottom: 50px
+}
+
+.menu-category {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    margin: 0 auto;
+}
+
+.listPopularDish {
+    margin: 70px 0;
+}
