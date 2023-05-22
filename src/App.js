@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Menu from './pages/Menu/Menu';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
+import Checkout from './components/Checkout/Checkout';
+import Cart from './components/Cart/Cart';
 
 const App = () => {
   const [comboDishes, setComboDishes] = useState([]);
@@ -16,6 +18,7 @@ const App = () => {
   const [pastaDishes, setPastaDishes] = useState([]);
   const [saladDishes, setSaladDishes] = useState([]);
   const [drinkDishes, setDrinkDishes] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     // Gọi API Combo
@@ -54,11 +57,43 @@ const App = () => {
       .then(data => setDrinkDishes(data));
   }, []);
 
+
+  const onAddToCart = (productId) => {
+    const allDishes = [...comboDishes, ...pizzaDishes,
+    ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
+
+    const findProductItem = allDishes.find((dishItem) => dishItem.id === productId);
+      console.log(findProductItem)
+    const indexOfAddingProductInCart = cart.findIndex(
+      (cartItem) => cartItem.id === productId
+    );
+      
+    if (indexOfAddingProductInCart === -1) {
+      const newCartItem = {
+        ...findProductItem,
+        quantity: 1,
+      };
+      setCart([...cart, newCartItem]);
+    } else {
+      const clonedCart = [...cart];
+      clonedCart[indexOfAddingProductInCart].quantity += 1;
+      setCart(clonedCart);
+    }
+  }
+
+  const onDeleteProduct = (productId) =>{
+    const deleteProduct = cart.filter((productItem) => productItem.id !== productId )
+
+    setCart(deleteProduct);
+  }
+
+  console.log("cart",cart)
   return (
     <div className="App">
-      <Header />
+      <Header 
+        cart={cart} onDeleteProduct ={onDeleteProduct}/>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage onAddToCart={onAddToCart}/>} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route
           path="/menu"
@@ -70,6 +105,7 @@ const App = () => {
             pastaDishes={pastaDishes}
             saladDishes={saladDishes}
             drinkDishes={drinkDishes}
+            onAddToCart={onAddToCart}
           />}
         />
         <Route
@@ -84,6 +120,8 @@ const App = () => {
             drinkDishes={drinkDishes}
           />}
         />
+        <Route path='/checkout' element={<Checkout />}/>
+        <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct}/>}/>
       </Routes>
       <Footer />
     </div>
@@ -92,6 +130,6 @@ const App = () => {
 
 export default App;
 
-       
-          
+
+
 

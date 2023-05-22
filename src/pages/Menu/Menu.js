@@ -93,7 +93,8 @@ const Menu = ({
   appetizerDishes,
   pastaDishes,
   saladDishes,
-  drinkDishes
+  drinkDishes,
+  onAddToCart
 }) => {
   const renderDishes = (dishes) => {
     return dishes.map((dish) => (
@@ -104,6 +105,7 @@ const Menu = ({
         productPrice={dish.price}
         productDescription={dish.content}
         id={dish.id}
+        onAddToCart={onAddToCart}
       />
     ));
   };

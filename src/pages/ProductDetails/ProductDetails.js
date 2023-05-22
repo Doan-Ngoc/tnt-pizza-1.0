@@ -85,19 +85,20 @@ const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDish
   if (!product) {
     return <div>Loading...PleaCheck :</div>;
   }
-
+  const {title, image, price, content} = product;
+  
   return (
     <div className="container">
       <div className="row mt-5 product-container">
         <div className="product-image-container col-md-6">
-          <img className="product-image" src={product.image} alt={product.title} />
+          <img className="product-image" src={image} alt={title} />
         </div>
         <div className="col-md-6">
           <div className="product-dtl">
             <div className="product-info">
-              <div className="product-name">{product.title}</div>
-              <div className="product-price-discount"><span>{product.price} đ</span></div>
-              <p className="product-description">{product.content}</p>
+              <div className="product-name">{title}</div>
+              <div className="product-price-discount"><span>{price} đ</span></div>
+              <p className="product-description">{content}</p>
               <div className="row mt-4">
                 <div className="col-md-6">
                   <label htmlFor="size">Kích Thước</label>
@@ -120,9 +121,9 @@ const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDish
               <div className="product-count">
                 <label htmlFor="size">Số lượng</label>
                 <form action="#" className="display-flex">
-                  <div className="qtyminus">-</div>
+                  <div ><button className="qtyminus">-</button></div>
                   <input type="text" name="quantity" value="1" className="qty" />
-                  <div className="qtyplus">+</div>
+                  <div ><button className="qtyplus">+</button></div>
                 </form>
                 <a href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
               </div>

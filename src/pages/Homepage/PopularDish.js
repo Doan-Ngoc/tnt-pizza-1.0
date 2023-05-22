@@ -2,7 +2,7 @@ import React from 'react'
 import ProductItem from '../../components/ProductItem/ProductItem'
 import mockPopularDish from '../../mockData/mockPopularDish'
 import { Link } from 'react-router-dom'
-const PopularDish = () => {
+const PopularDish = ({onAddToCart}) => {
   /*Navbar*/
   const PopularDishNavBar = () => {
     return (
@@ -36,6 +36,7 @@ const PopularDish = () => {
         productPrice={productPrice}
         productDescription={productDescription}
         id={id}
+        onAddToCart={onAddToCart}
       />)
 
   })

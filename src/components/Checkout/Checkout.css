@@ -1,0 +1,164 @@
+.checkout {
+    padding-top: 50px;
+}
+
+.checkout .title-checkout {
+    display: flex;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.title-checkout p {
+    color: #888888;
+
+}
+
+.title-checkout span {
+    color: #00814b;
+}
+
+.checkout .billing-detail {
+    padding-top: 40px;
+    width: 50%;
+}
+
+.billing-detail h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    color: var(--text-color2);
+}
+.billing-detail input{
+    padding-left: 10px;
+}
+.billing-detail .input-name {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-name input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-address {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-address input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-city {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-city input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-phone {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-phone input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-mail {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-mail input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.order {
+    padding-top: 52px;
+}
+
+.order h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    color: var(--text-color2);
+}
+
+table {
+    padding-top: 40px;
+    width: 100%;
+}
+
+table thead tr th {
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: start;
+    padding-left: 32px;
+}
+
+table thead tr th:nth-child(1) {
+    width: 50%;
+    height: 60px;
+    border: 1px solid #EBEBEB;
+    border-right: none;
+}
+
+table thead tr th:nth-child(2) {
+    width: 50%;
+    height: 60px;
+    border: 1px solid #EBEBEB;
+    border-left: none;
+}
+
+table tbody tr td {
+    /* padding-top: 16px; */
+    padding-left: 20px;
+}
+
+table tr td:nth-child(1) {
+    width: 50%;
+    height: 60px;
+    border: 1px solid #EBEBEB;
+    border-right: none;
+    border-top: none;
+    padding-left: 32px;
+}
+
+table tr td:nth-child(2) {
+    width: 50%;
+    height: 60px;
+    border: 1px solid #EBEBEB;
+    border-left: none;
+    border-top: none;
+    padding-left: 32px;
+}
+table .check-order td:nth-child(1){
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+table tr .total-price {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0px;
+}

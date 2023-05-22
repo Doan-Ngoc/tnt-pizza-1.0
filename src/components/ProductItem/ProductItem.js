@@ -4,7 +4,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductItem.css';
 
-const ProductItem = ({ productName, productImage, productPrice, productDescription, id }) => {
+const ProductItem = ({ productName, productImage, productPrice, productDescription, id, onAddToCart }) => {
+
   return (
     <div className="product-item card d-flex flex-column align-items-center">
       <Link to={`/dish-details/${id}`} className="card-img-top">
@@ -14,8 +15,9 @@ const ProductItem = ({ productName, productImage, productPrice, productDescripti
       
         <h5 className="card-title">{productName}</h5>
         <p className="card-text">{productPrice}</p>
-        <button className="btn btn-primary w-100 rounded-pill">
-          <Link className="order-now-btn" to={`/dish-details/${id}`}>Add to cart</Link>
+        <button onClick={()=>onAddToCart(id)} className="btn btn-primary w-100 rounded-pill">
+          {/* <Link className="order-now-btn" to={`/dish-details/${id}`}>Add to cart</Link> */}
+          Add to cart
         </button>
       </div>
     </div>

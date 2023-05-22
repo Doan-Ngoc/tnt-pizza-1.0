@@ -6,13 +6,13 @@ import NewDish from './NewDish';
 import PopularDish from './PopularDish';
 import Delivery from './Delivery';
 
-const Homepage = () => {
+const Homepage = ({onAddToCart}) => {
   return (
     <div className='homepage'>
       <PromotionSlider />
       <WhyUs />
       <NewDish />
-      <PopularDish />
+      <PopularDish onAddToCart={onAddToCart}/>
       <Delivery />
     </div>
   )
