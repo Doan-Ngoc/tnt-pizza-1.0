@@ -90,12 +90,12 @@ const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDish
     <div className="container">
       <div className="row mt-5 product-container">
         <div className="product-image-container col-md-6">
-          <img className="product-image" src={product.image} alt={product.tilte} />
+          <img className="product-image" src={product.image} alt={product.title} />
         </div>
         <div className="col-md-6">
           <div className="product-dtl">
             <div className="product-info">
-              <div className="product-name">{product.tilte}</div>
+              <div className="product-name">{product.title}</div>
               <div className="product-price-discount"><span>{product.price} đ</span></div>
               <p className="product-description">{product.content}</p>
               <div className="row mt-4">
