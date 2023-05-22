@@ -120,7 +120,7 @@ const App = () => {
             drinkDishes={drinkDishes}
           />}
         />
-        <Route path='/checkout' element={<Checkout />}/>
+        <Route path='/checkout' element={<Checkout cart={cart}/>}/>
         <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct}/>}/>
       </Routes>
       <Footer />
