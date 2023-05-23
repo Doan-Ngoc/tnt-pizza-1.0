@@ -16,7 +16,6 @@ const ProductItem = ({ productName, productImage, productPrice, productDescripti
         <h5 className="card-title">{productName}</h5>
         <p className="card-text">{productPrice}</p>
         <button onClick={()=>onAddToCart(id)} className="btn btn-primary w-100 rounded-pill">
-          {/* <Link className="order-now-btn" to={`/dish-details/${id}`}>Add to cart</Link> */}
           Add to cart
         </button>
       </div>

@@ -9,8 +9,10 @@ import Menu from './pages/Menu/Menu';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart';
+import mockPopularDish from './mockData/mockPopularDish'
 
 const App = () => {
+  const [popularDish, setPopularDish] = useState([])
   const [comboDishes, setComboDishes] = useState([]);
   const [pizzaDishes, setPizzaDishes] = useState([]);
   const [chickenDishes, setChickenDishes] = useState([]);
@@ -55,11 +57,17 @@ const App = () => {
     fetch('https://645e646812e0a87ac0ef326a.mockapi.io/FoodApp/api/v1/drinks')
       .then(response => response.json())
       .then(data => setDrinkDishes(data));
+    
   }, []);
 
+  useEffect(()=>{
+    setPopularDish(mockPopularDish); 
+  },[])
 
+  console.log(mockPopularDish)
+  console.log(popularDish)
   const onAddToCart = (productId) => {
-    const allDishes = [...comboDishes, ...pizzaDishes,
+    const allDishes = [...popularDish,...comboDishes, ...pizzaDishes,
     ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
 
     const findProductItem = allDishes.find((dishItem) => dishItem.id === productId);

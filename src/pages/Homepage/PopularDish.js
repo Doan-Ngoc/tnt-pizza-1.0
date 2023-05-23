@@ -28,13 +28,13 @@ const PopularDish = ({onAddToCart}) => {
 
   /*Popular dish list*/
   const listPopularDish = mockPopularDish && mockPopularDish.map(dish => {
-    const { productName, productImage, productPrice, productDescription, id } = dish
+    const { title, image, price, content, id } = dish
     return (
       <ProductItem
-        productName={productName}
-        productImage={productImage}
-        productPrice={productPrice}
-        productDescription={productDescription}
+        productName={title}
+        productImage={image}
+        productPrice={price}
+        productDescription={content}
         id={id}
         onAddToCart={onAddToCart}
       />)
