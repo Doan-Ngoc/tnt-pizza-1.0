@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+
 import './Header.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { FaTrashAlt } from "react-icons/fa";
 const Header = ({ cart, onDeleteProduct }) => {
-  const [card, setCard] = useState(false)
-
 
   const lengthCart = cart.length;
   const getTotalPrice = (cart) => {
@@ -37,15 +35,7 @@ const Header = ({ cart, onDeleteProduct }) => {
       <button className="close" onClick={() => onDeleteProduct(id)}><FaTrashAlt className='trash' /></button>
     </div>
   })
-
-
-
-  const onCart = () => {
-    setCard(true)
-  }
-
-  const isStyleCard = card ? " d-block" : ""
-
+  
   return (
     <div className="header">
       <nav className="navbar navbar-expand-lg">
@@ -67,13 +57,13 @@ const Header = ({ cart, onDeleteProduct }) => {
               <Link className="nav-link" to="/menu">Menu</Link>
             </li>
           </ul>
-          <button onClick={onCart} className='btn rounded-pill cart-btn d-flex align-items-center gap-1'>
+          <button className='btn rounded-pill cart-btn d-flex align-items-center gap-1' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             <i className="fa fa-shopping-cart mr-2"></i>
             Giỏ hàng
             <span className='cart-quantity'>{lengthCart}</span>
 
           </button>
-          <div className='cart-container'>
+          <div className="cart-container collapse"  id="collapseExample">
             {cartContainer}
             {
               lengthCart ? (

@@ -1,3 +1,6 @@
+.container{
+    margin: 0 auto;
+}
 .checkout {
     padding-top: 50px;
 }
@@ -90,6 +93,8 @@
 
 .order {
     padding-top: 52px;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
 .order h2 {
@@ -98,67 +103,51 @@
     line-height: 48px;
     color: var(--text-color2);
 }
-
-table {
-    padding-top: 40px;
+.place-order {
+    margin-top: 45px;
     width: 100%;
-}
-
-table thead tr th {
-    color: var(--text-color);
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 18px;
-    text-align: start;
-    padding-left: 32px;
-}
-
-table thead tr th:nth-child(1) {
-    width: 50%;
-    height: 60px;
+    height: 245px;
     border: 1px solid #EBEBEB;
-    border-right: none;
+    position: relative;
+    margin-bottom: 10px;
 }
 
-table thead tr th:nth-child(2) {
-    width: 50%;
-    height: 60px;
+.place-order .content-place-order {
+    padding: 24px 16px 24px 16px;
+    width: 95%;
+    background-color: var(--background-footer-color);
+    margin: 33px 24px 135px 24px;
     border: 1px solid #EBEBEB;
-    border-left: none;
+
 }
 
-table tbody tr td {
-    /* padding-top: 16px; */
-    padding-left: 20px;
+.place-order button {
+    padding: 14px 36px 14px 36px;
+    color: white;
+    background-color: #00814b;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    border: none;
+    border-radius: 14px;
+    position: absolute;
+    top: 143px;
+    right: 30px;
+    cursor: pointer;
+    transition: 0.5s all;
+    opacity: 0.7;
 }
 
-table tr td:nth-child(1) {
-    width: 50%;
-    height: 60px;
-    border: 1px solid #EBEBEB;
-    border-right: none;
-    border-top: none;
-    padding-left: 32px;
+.place-order button:hover{
+    transform: scale(1.1);
+    opacity: 1;
+
 }
 
-table tr td:nth-child(2) {
-    width: 50%;
-    height: 60px;
-    border: 1px solid #EBEBEB;
-    border-left: none;
-    border-top: none;
-    padding-left: 32px;
-}
-table .check-order td:nth-child(1){
-    color: var(--text-color);
-    font-weight: bold;
+.table{
+    width: 60%;
 }
 
-table tr .total-price {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0px;
+.place-order .content-place-order{
+    background-color: #f1efef;
 }

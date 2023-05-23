@@ -81,13 +81,39 @@ const App = () => {
     }
   }
 
+  const onDecreaseQuantity = (productId) =>{
+    const cartIndexProduct = cart.findIndex((cartItem) => {
+      return cartItem.id === productId;
+    })
+
+    const updatingCart = [...cart];
+    const currentCartProductQuantity = updatingCart[cartIndexProduct].quantity;
+
+    if (currentCartProductQuantity === 1) {
+      onDeleteProduct();
+
+    } else {
+      updatingCart[cartIndexProduct].quantity -= 1;
+      setCart(updatingCart);
+    }
+  }
+
+
+  const onIncreaseQuantity = (productId) => {
+    const cartIndexProduct = cart.findIndex((cartItem) => {
+      return cartItem.id === productId;
+    })
+
+    const updatingCart = [...cart];
+    updatingCart[cartIndexProduct].quantity += 1;
+    setCart(updatingCart);
+  }
+
   const onDeleteProduct = (productId) =>{
     const deleteProduct = cart.filter((productItem) => productItem.id !== productId )
 
     setCart(deleteProduct);
   }
-
-  console.log("cart",cart)
   return (
     <div className="App">
       <Header 
@@ -121,7 +147,7 @@ const App = () => {
           />}
         />
         <Route path='/checkout' element={<Checkout cart={cart}/>}/>
-        <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct}/>}/>
+        <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct} onDecreaseQuantity={onDecreaseQuantity} onIncreaseQuantity={onIncreaseQuantity}/>}/>
       </Routes>
       <Footer />
     </div>

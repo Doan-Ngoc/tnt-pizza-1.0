@@ -60,7 +60,6 @@ img {
     top:100px;
     right: 0px;
     width: 550px;
-    display: block;
     max-height: 300px;
     overflow-y: auto;
     border-radius: 5px;
@@ -91,9 +90,9 @@ img {
 }
 
 
-.d-block {
+/* .d-block {
     display: block;
-}
+} */
 
 .close{
     border: none;
@@ -128,7 +127,7 @@ img {
     padding: 11px;
     color: #000000;
     gap: 7px;
-    background: none;
+    background-color: #fff;
     justify-content: space-around;
 }
 
@@ -147,4 +146,11 @@ img {
     border-radius: 8px;
     border: none;
     padding: 10px 0px;
+    transition: all 0.3s;
+    opacity: 0.9;
 }
+
+.btn-checkout:hover{
+    opacity: 1;
+}
+
