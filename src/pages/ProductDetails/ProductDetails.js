@@ -61,8 +61,8 @@ import React, { useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./ProductDetails.css";
 
-const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDishes, 
-    pastaDishes, saladDishes, drinkDishes }) => {
+const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, appetizerDishes, 
+    pastaDishes, saladDishes, drinkDishes, onDecreaseQuantity, onIncreaseQuantity }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -72,7 +72,7 @@ const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDish
 
   // Tìm sản phẩm trong các danh sách comboDishes, pizzaDishes, ...
   const findProduct = (productId) => {
-    const allDishes = [...comboDishes, ...pizzaDishes, 
+    const allDishes = [...popularDish, ...comboDishes, ...pizzaDishes, 
         ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
     return allDishes.find(dish => dish.id === productId);
   };
@@ -85,10 +85,10 @@ const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDish
   if (!product) {
     return <div>Loading...PleaCheck :</div>;
   }
-  const {title, image, price, content} = product;
+  const {title, image, price, content, quantity} = product;
   
   return (
-    <div className="container">
+    <div style={{marginBottom:"100px"}} className="container">
       <div className="row mt-5 product-container">
         <div className="product-image-container col-md-6">
           <img className="product-image" src={image} alt={title} />
@@ -120,10 +120,11 @@ const ProductDetails = ({ comboDishes, pizzaDishes, chickenDishes, appetizerDish
               </div>
               <div className="product-count">
                 <label htmlFor="size">Số lượng</label>
-                <form action="#" className="display-flex">
-                  <div ><button className="qtyminus">-</button></div>
-                  <input type="text" name="quantity" value="1" className="qty" />
-                  <div ><button className="qtyplus">+</button></div>
+                <form  className="display-flex">
+                  <div ><button  onClick={() => onDecreaseQuantity(id)} className="qtyminus">-</button></div>
+                  {/* <input type="text" name="quantity" value="1" className="qty" /> */}
+                  <span className="qty">{ quantity}</span>
+                  <div ><button onClick={() => onIncreaseQuantity(id) } className="qtyplus">+</button></div>
                 </form>
                 <a href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
               </div>

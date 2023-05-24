@@ -8,13 +8,15 @@ const ProductItem = ({ productName, productImage, productPrice, productDescripti
 
   return (
     <div className="product-item card d-flex flex-column align-items-center">
+     
       <Link to={`/dish-details/${id}`} className="card-img-top">
         <img src={productImage} alt={productName} />
       </Link>
+      
       <div className="card-body text-center">
       
         <h5 className="card-title">{productName}</h5>
-        <p className="card-text">{productPrice}</p>
+        <p className="card-text">{productPrice} đ</p>
         <button onClick={()=>onAddToCart(id)} className="btn btn-primary w-100 rounded-pill">
           Add to cart
         </button>

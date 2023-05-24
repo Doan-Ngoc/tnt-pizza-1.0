@@ -111,14 +111,14 @@ const Menu = ({
   };
 
   return (
-    <div className="menu">
+    <div className="menu ">
       <div className="menu-category">
         <h1>Full Menu</h1>
         <h2>COMBO</h2>
         <div className="listPopularDish d-flex gap-4">{renderDishes(comboDishes)}</div>
       </div>
 
-      <div className="menu-category1">
+      <div className="menu-category">
         <h2>PIZZA</h2>
         <div className="listPopularDish d-flex gap-4">{renderDishes(pizzaDishes)}</div>
       </div>

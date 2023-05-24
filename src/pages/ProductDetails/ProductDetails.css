@@ -105,15 +105,25 @@ option {
 
 .product-count .qtyminus {
     border-radius: 3px 0 0 3px;
+    border:none;
+    transition: all 0.3s;
+    opacity: 0.8;
 }
 
 .product-count .qtyplus {
     border-radius: 0 3px 3px 0;
+    border:none;
+    opacity: 0.8;
 }
 
+.product-count .qtyminus:hover,
+.product-count .qtyplus:hover {
+    opacity: 1;
+}
 .product-count .qty {
     width: 60px;
     text-align: center;
+    padding-top: 5px;
 }
 
 .round-black-btn {

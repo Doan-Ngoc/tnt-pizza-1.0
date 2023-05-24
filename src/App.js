@@ -145,6 +145,7 @@ const App = () => {
         <Route
           path="/dish-details/:id"
           element={<ProductDetails
+            popularDish={popularDish}
             comboDishes={comboDishes}
             pizzaDishes={pizzaDishes}
             chickenDishes={chickenDishes}
@@ -152,6 +153,8 @@ const App = () => {
             pastaDishes={pastaDishes}
             saladDishes={saladDishes}
             drinkDishes={drinkDishes}
+            onIncreaseQuantity={onIncreaseQuantity}
+            onDecreaseQuantity={onDecreaseQuantity}
           />}
         />
         <Route path='/checkout' element={<Checkout cart={cart}/>}/>
