@@ -62,7 +62,7 @@ import { useParams } from 'react-router-dom';
 import "./ProductDetails.css";
 
 const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, appetizerDishes, 
-    pastaDishes, saladDishes, drinkDishes, onDecreaseQuantity, onIncreaseQuantity }) => {
+    pastaDishes, saladDishes, drinkDishes, onDecreaseQuantity, onIncreaseQuantity, cart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -81,12 +81,10 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
     const product = findProduct(id);
     setProduct(product);
   }, [id]);
-
   if (!product) {
-    return <div>Loading...PleaCheck :</div>;
+    return <div>Loading...Please Wait :</div>;
   }
   const {title, image, price, content, quantity} = product;
-  
   return (
     <div style={{marginBottom:"100px"}} className="container">
       <div className="row mt-5 product-container">
@@ -118,16 +116,7 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
                   </select>
                 </div>
               </div>
-              <div className="product-count">
-                <label htmlFor="size">Số lượng</label>
-                <form  className="display-flex">
-                  <div ><button  onClick={() => onDecreaseQuantity(id)} className="qtyminus">-</button></div>
-                  {/* <input type="text" name="quantity" value="1" className="qty" /> */}
-                  <span className="qty">{quantity}</span>
-                  <div ><button onClick={() => onIncreaseQuantity(id) } className="qtyplus">+</button></div>
-                </form>
                 <a href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
-              </div>
             </div>
           </div>
         </div>

@@ -156,6 +156,7 @@ const App = () => {
             drinkDishes={drinkDishes}
             onIncreaseQuantity={onIncreaseQuantity}
             onDecreaseQuantity={onDecreaseQuantity}
+            cart = {cart}
           />}
         />
         <Route path='/checkout' element={<Checkout cart={cart}/>}/>

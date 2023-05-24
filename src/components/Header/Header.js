@@ -74,7 +74,7 @@ const Header = ({ cart, onDeleteProduct }) => {
                   </div>
 
                   <div>
-                    <button onClick={ onNavigateToProductDetail} className='btn-checkout'>Check Out</button>
+                    <button onClick={ onNavigateToProductDetail} className='btn-checkout' data-bs-dismiss="collapse">Check Out</button>
                   </div>
                 </>
 
