@@ -24,7 +24,7 @@ const App = () => {
 
   useEffect(() => {
     // Gọi API Combo
-    fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
+    fetch('https://646dc9739c677e23218a6722.mockapi.io/api/v1/combo')
       .then(response => response.json())
       .then(data => setComboDishes(data));
 
@@ -39,9 +39,10 @@ const App = () => {
       .then(data => setChickenDishes(data));
 
     // Gọi API Khai vị
-    fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
+    fetch('https://646dc9739c677e23218a6722.mockapi.io/api/v1/khaivi')
       .then(response => response.json())
       .then(data => setAppetizerDishes(data));
+      console.log("Khai vị", appetizerDishes)
 
     // Gọi API Mỳ ý
     fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')

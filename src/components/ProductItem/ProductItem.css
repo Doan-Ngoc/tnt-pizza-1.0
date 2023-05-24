@@ -1,20 +1,28 @@
 
 
 .card-img-top img{
-    width: 80%; 
-    height: 100%;
-    object-fit: cover; 
-    text-align: center;
-    padding: 10px;
-    transition: all 0.3s;
-  }
+  width: 80%; 
+  height: 100%;
+  object-fit: cover; 
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s;
+}
 
- .card-img-top img:hover{
-  transform: scale(1.1);
- } 
+.card-img-top img:hover{
+transform: scale(1.1);
+} 
 
 .product-item{
-  width: 20%;
-  text-align: center;
-  justify-content: center;
+width: 20%;
+text-align: center;
+justify-content: center;
+}
+i {
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+i:hover {
+color: var(--primary-color-3)
 }

@@ -123,7 +123,7 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
                 <form  className="display-flex">
                   <div ><button  onClick={() => onDecreaseQuantity(id)} className="qtyminus">-</button></div>
                   {/* <input type="text" name="quantity" value="1" className="qty" /> */}
-                  <span className="qty">{ quantity}</span>
+                  <span className="qty">{quantity}</span>
                   <div ><button onClick={() => onIncreaseQuantity(id) } className="qtyplus">+</button></div>
                 </form>
                 <a href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>

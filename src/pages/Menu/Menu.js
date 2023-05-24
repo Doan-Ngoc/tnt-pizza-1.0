@@ -94,7 +94,9 @@ const Menu = ({
   pastaDishes,
   saladDishes,
   drinkDishes,
-  onAddToCart
+  onAddToCart,
+  onIncreaseQuantity,
+  onDecreaseQuantity
 }) => {
   const renderDishes = (dishes) => {
     return dishes.map((dish) => (
@@ -112,40 +114,40 @@ const Menu = ({
 
   return (
     <div className="menu ">
-      <div className="menu-category">
+      <div className="menu-category mb-5">
         <h1>Full Menu</h1>
         <h2>COMBO</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(comboDishes)}</div>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(comboDishes)}</div>
       </div>
 
-      <div className="menu-category">
-        <h2>PIZZA</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(pizzaDishes)}</div>
-      </div>
-
-      <div className="menu-category">
-        <h2>GÀ GIÒN</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(chickenDishes)}</div>
-      </div>
-
-      <div className="menu-category">
+      <div className="menu-category mb-5">
         <h2>KHAI VỊ</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(appetizerDishes)}</div>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(appetizerDishes)}</div>
       </div>
 
-      <div className="menu-category">
+      <div className="menu-category mb-5">
+        <h2>PIZZA</h2>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(pizzaDishes)}</div>
+      </div>
+
+      <div className="menu-category mb-5">
+        <h2>GÀ GIÒN</h2>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(chickenDishes)}</div>
+      </div>
+
+      <div className="menu-category mb-5">
         <h2>MỲ Ý</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(pastaDishes)}</div>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(pastaDishes)}</div>
       </div>
 
-      <div className="menu-category">
+      <div className="menu-category mb-5">
         <h2>SALAD</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(saladDishes)}</div>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(saladDishes)}</div>
       </div>
 
-      <div className="menu-category">
+      <div className="menu-category mb-5">
         <h2>THỨC UỐNG</h2>
-        <div className="listPopularDish d-flex gap-4">{renderDishes(drinkDishes)}</div>
+        <div className="listPopularDish d-flex flex-wrap gap-5 justify-content-center my-5">{renderDishes(drinkDishes)}</div>
       </div>
     </div>
   );
