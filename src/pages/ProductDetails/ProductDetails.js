@@ -62,7 +62,7 @@ import { useParams } from 'react-router-dom';
 import "./ProductDetails.css";
 
 const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, appetizerDishes, 
-    pastaDishes, saladDishes, drinkDishes, onDecreaseQuantity, onIncreaseQuantity, cart }) => {
+    pastaDishes, saladDishes, drinkDishes,  onAddToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -84,7 +84,7 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
   if (!product) {
     return <div>Loading...Please Wait :</div>;
   }
-  const {title, image, price, content, quantity} = product;
+  const {title, image, price, content} = product;
   return (
     <div style={{marginBottom:"100px"}} className="container">
       <div className="row mt-5 product-container">
@@ -116,7 +116,7 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
                   </select>
                 </div>
               </div>
-                <a href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
+                <a  onClick={() => onAddToCart(id)} href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
             </div>
           </div>
         </div>

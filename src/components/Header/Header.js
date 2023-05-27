@@ -2,7 +2,7 @@
 import './Header.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { FaTrashAlt } from "react-icons/fa";
-const Header = ({ cart, onDeleteProduct }) => {
+const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity }) => {
 
   const lengthCart = cart.length;
   const getTotalPrice = (cart) => {
@@ -30,12 +30,27 @@ const Header = ({ cart, onDeleteProduct }) => {
       </div>
       <div className="price-item">{price}</div>
       <div className="quantity-item">
+        <button
+          style={{ background: "#0b603d", padding:"5px 10px" }}
+          className="btn btn-primary"
+          onClick={() => onDecreaseQuantity(id)}
+        // disabled={isDisabledDecreaseButton}
+        >
+          -
+        </button>
         <span> {quantity}</span>
+        <button
+          style={{ background: "#0b603d", padding:"5px 10px", marginLeft:"5px" }}
+          className="btn btn-primary"
+          onClick={() => onIncreaseQuantity(id)}
+        >
+          +
+        </button>
       </div>
       <button className="close" onClick={() => onDeleteProduct(id)}><FaTrashAlt className='trash' /></button>
     </div>
   })
-  
+
   return (
     <div className="header">
       <nav className="navbar navbar-expand-lg">
@@ -63,7 +78,7 @@ const Header = ({ cart, onDeleteProduct }) => {
             <span className='cart-quantity'>{lengthCart}</span>
 
           </button>
-          <div className="cart-container collapse"  id="collapseExample">
+          <div className="cart-container collapse" id="collapseExample">
             {cartContainer}
             {
               lengthCart ? (
@@ -74,7 +89,7 @@ const Header = ({ cart, onDeleteProduct }) => {
                   </div>
 
                   <div>
-                    <button onClick={ onNavigateToProductDetail} className='btn-checkout' data-bs-dismiss="collapse">Check Out</button>
+                    <button onClick={onNavigateToProductDetail} className='btn-checkout' data-bs-dismiss="collapse">Check Out</button>
                   </div>
                 </>
 

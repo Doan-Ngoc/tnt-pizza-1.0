@@ -20,9 +20,10 @@
     margin-top: 75px;
 }
 
-hr{
+hr {
     margin: 18px 0px;
 }
+
 .Cart-Total {
     width: 35%;
     margin-top: 100px;
@@ -52,11 +53,11 @@ hr{
 }
 
 .Proceed-to-checkout {
-    width: 200px;
+    width: 250px;
     margin-top: 50px;
     border: none;
     border-radius: 10px;
-    height: 50px;
+    padding: 10px;
     background-color: #00814b;
     color: #FFFFFF;
     cursor: pointer;
@@ -68,10 +69,15 @@ hr{
     transform: scale(1.1);
 }
 
-.btn{
+.btn {
     opacity: 0.9;
 }
 
-.btn:hover{
+.btn:hover {
     opacity: 1;
+}
+
+.table-cart {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
 }

@@ -18,7 +18,7 @@ const ProductItem = ({ productName, productImage, productPrice, productDescripti
           <p className="card-text">{productPrice} đ</p>
         </div>
         <Link to={`/dish-details/${id}`} className="card-img-top">
-          <button onClick={() => onAddToCart(id)} className="btn btn-primary rounded-pill">
+          <button className="btn btn-primary rounded-pill">
             Xem chi tiết </button>
         </Link>
       </div>

@@ -24,23 +24,15 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
     const { title, image, price, id, quantity } = cartItem;
     return (
       <tr key={id}>
-        <th scope="row">{index}</th>
-        <td>
-          <button
-            style={{ background: "none", color: "#00814b", border: "none" }}
-            className="btn btn-danger"
-            onClick={() => onDeleteProduct(id)}
-          >
-            <FaTrashAlt />
-          </button>
-        </td>
-        <td>{title}</td>
+        <th style={{paddingTop:"20px"}} scope="row">{index+1}</th>
+
+        <td style={{paddingTop:"20px"}}>{title}</td>
         <td >
           <img src={image} alt={title} style={{
             width: "50%", height: "50px"
           }} />
         </td>
-        <td>{price}</td>
+        <td style={{paddingTop:"20px"}}>{price}</td>
         <td>
           <button
             style={{ background: "#0b603d" }}
@@ -59,7 +51,16 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             +
           </button>
         </td>
-        <td>{quantity * price}</td>
+        <td style={{paddingTop:"20px"}}>{quantity * price}</td>
+        <td>
+          <button
+            style={{ background: "none", color: "#00814b", border: "none" }}
+            className="btn btn-danger"
+            onClick={() => onDeleteProduct(id)}
+          >
+            <FaTrashAlt />
+          </button>
+        </td>
 
       </tr>
     )
@@ -72,16 +73,16 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
           <p>HOME/</p><span> SHOPPING CART</span>
         </h3>
         <div>
-          <table className="table">
+          <table className="table table-cart">
             <thead>
               <tr>
-                <th scope="col" style={{ width: "150px" }}>#</th>
-                <th scope="col">...</th>
+                <th scope="col" style={{ width: "130px" }}>#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Image</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Total</th>
+                <th scope="col">...</th>
               </tr>
             </thead>
             <tbody>
@@ -92,8 +93,8 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
                 <td style={{ fontWeight: "700" }}>{totalPrice}</td>
+                <td></td>
               </tr>
             </tbody>
           </table>

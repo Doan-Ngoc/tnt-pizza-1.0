@@ -42,7 +42,7 @@ const App = () => {
     fetch('https://646dc9739c677e23218a6722.mockapi.io/api/v1/khaivi')
       .then(response => response.json())
       .then(data => setAppetizerDishes(data));
-      console.log("Khai vị", appetizerDishes)
+    console.log("Khai vị", appetizerDishes)
 
     // Gọi API Mỳ ý
     fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
@@ -58,25 +58,23 @@ const App = () => {
     fetch('https://645e646812e0a87ac0ef326a.mockapi.io/FoodApp/api/v1/drinks')
       .then(response => response.json())
       .then(data => setDrinkDishes(data));
-    
+
   }, []);
 
-  useEffect(()=>{
-    setPopularDish(mockPopularDish); 
-  },[])
+  useEffect(() => {
+    setPopularDish(mockPopularDish);
+  }, [])
 
-  console.log(mockPopularDish)
-  console.log(popularDish)
+
   const onAddToCart = (productId) => {
-    const allDishes = [...popularDish,...comboDishes, ...pizzaDishes,
+    const allDishes = [...popularDish, ...comboDishes, ...pizzaDishes,
     ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
 
     const findProductItem = allDishes.find((dishItem) => dishItem.id === productId);
-      console.log(findProductItem)
     const indexOfAddingProductInCart = cart.findIndex(
       (cartItem) => cartItem.id === productId
     );
-      
+
     if (indexOfAddingProductInCart === -1) {
       const newCartItem = {
         ...findProductItem,
@@ -90,7 +88,7 @@ const App = () => {
     }
   }
 
-  const onDecreaseQuantity = (productId) =>{
+  const onDecreaseQuantity = (productId) => {
     const cartIndexProduct = cart.findIndex((cartItem) => {
       return cartItem.id === productId;
     })
@@ -118,17 +116,21 @@ const App = () => {
     setCart(updatingCart);
   }
 
-  const onDeleteProduct = (productId) =>{
-    const deleteProduct = cart.filter((productItem) => productItem.id !== productId )
+  const onDeleteProduct = (productId) => {
+    const deleteProduct = cart.filter((productItem) => productItem.id !== productId)
 
     setCart(deleteProduct);
   }
   return (
     <div className="App">
-      <Header 
-        cart={cart} onDeleteProduct ={onDeleteProduct}/>
+      <Header
+        cart={cart}
+        onDeleteProduct={onDeleteProduct}
+        onDecreaseQuantity={onDecreaseQuantity}
+        onIncreaseQuantity={onIncreaseQuantity}
+      />
       <Routes>
-        <Route path="/" element={<Homepage onAddToCart={onAddToCart}/>} />
+        <Route path="/" element={<Homepage onAddToCart={onAddToCart} />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route
           path="/menu"
@@ -154,13 +156,11 @@ const App = () => {
             pastaDishes={pastaDishes}
             saladDishes={saladDishes}
             drinkDishes={drinkDishes}
-            onIncreaseQuantity={onIncreaseQuantity}
-            onDecreaseQuantity={onDecreaseQuantity}
-            cart = {cart}
+            onAddToCart={onAddToCart}
           />}
         />
-        <Route path='/checkout' element={<Checkout cart={cart}/>}/>
-        <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct} onDecreaseQuantity={onDecreaseQuantity} onIncreaseQuantity={onIncreaseQuantity}/>}/>
+        <Route path='/checkout' element={<Checkout cart={cart} />} />
+        <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct} onDecreaseQuantity={onDecreaseQuantity} onIncreaseQuantity={onIncreaseQuantity} />} />
       </Routes>
       <Footer />
     </div>
