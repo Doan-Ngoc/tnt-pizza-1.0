@@ -1,0 +1,34 @@
+.about-us {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+}
+
+h1 {
+  padding: 0 auto;
+}
+
+.about-us-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.about-us-text,
+.about-us-img {
+  flex-basis: calc(50% - 50px);
+}
+
+.about-us-img {
+  overflow: hidden;
+  border-radius: 5%;
+}
+
+.about-us-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

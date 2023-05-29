@@ -1,0 +1,153 @@
+.container{
+    margin: 0 auto;
+}
+.checkout {
+    padding-top: 50px;
+}
+
+.checkout .title-checkout {
+    display: flex;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.title-checkout p {
+    color: #888888;
+
+}
+
+.title-checkout span {
+    color: #00814b;
+}
+
+.checkout .billing-detail {
+    padding-top: 40px;
+    width: 50%;
+}
+
+.billing-detail h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    color: var(--text-color2);
+}
+.billing-detail input{
+    padding-left: 10px;
+}
+.billing-detail .input-name {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-name input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-address {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-address input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-city {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-city input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-phone {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-phone input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.billing-detail .input-mail {
+    padding-top: 23px;
+    width: 100%;
+}
+
+.billing-detail .input-mail input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #EBEBEB;
+}
+
+.order {
+    padding-top: 52px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.order h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    color: var(--text-color2);
+}
+.place-order {
+    margin-top: 45px;
+    width: 100%;
+    height: 245px;
+    border: 1px solid #EBEBEB;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.place-order .content-place-order {
+    padding: 24px 16px 24px 16px;
+    width: 95%;
+    background-color: var(--background-footer-color);
+    margin: 33px 24px 135px 24px;
+    border: 1px solid #EBEBEB;
+
+}
+
+.place-order button {
+    padding: 14px 36px 14px 36px;
+    color: white;
+    background-color: #00814b;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    border: none;
+    border-radius: 14px;
+    position: absolute;
+    top: 143px;
+    right: 30px;
+    cursor: pointer;
+    transition: 0.5s all;
+    opacity: 0.7;
+}
+
+.place-order button:hover{
+    transform: scale(1.1);
+    opacity: 1;
+
+}
+
+.table{
+    width: 60%;
+}
+
+.place-order .content-place-order{
+    background-color: #f1efef;
+}
