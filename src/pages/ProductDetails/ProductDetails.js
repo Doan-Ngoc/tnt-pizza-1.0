@@ -68,6 +68,8 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
   }
 
   const { title, image, price, content } = product;
+  const isPizzaDish = pizzaDishes.some(dish => dish.id === product.id);
+
 
   return (
     <div style={{ marginBottom: "100px" }} className="container">
@@ -83,10 +85,17 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
                 <span>{totalPrice} đ</span>
               </div>
               <p className="product-description">{content}</p>
+              {isPizzaDish && (
               <div className="row mt-4">
                 <div className="col-md-6">
                   <label htmlFor="size">Kích Thước</label>
-                  <select id="size" name="size" className="form-control" value={selectedSize} onChange={handleSizeChange}>
+                  <select
+                    id="size"
+                    name="size"
+                    className="form-control"
+                    value={selectedSize}
+                    onChange={handleSizeChange}
+                  >
                     <option>Nhỏ 6"</option>
                     <option>Vừa 9"</option>
                     <option>Lớn 12"</option>
@@ -94,7 +103,13 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
                 </div>
                 <div className="col-md-6">
                   <label htmlFor="color">Đế</label>
-                  <select id="color" name="color" className="form-control" value={selectedCrust} onChange={handleCrustChange}>
+                  <select
+                    id="color"
+                    name="color"
+                    className="form-control"
+                    value={selectedCrust}
+                    onChange={handleCrustChange}
+                  >
                     <option>Dày</option>
                     <option>Mỏng giòn</option>
                     <option>Viền phô mai</option>
@@ -102,13 +117,17 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
                   </select>
                 </div>
               </div>
-              <a onClick={() => onAddToCart(id)} href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
-            </div>
+            )}
+            <a onClick={() => onAddToCart(id)} href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
           </div>
         </div>
       </div>
     </div>
-  );
-}
+  </div>
+);
+              }
+
+
+             
   
 export default ProductDetails;
