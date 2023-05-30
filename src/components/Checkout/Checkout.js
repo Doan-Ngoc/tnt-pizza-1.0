@@ -1,8 +1,12 @@
 import React from 'react'
 import './Checkout.css'
+import { useLayoutEffect } from 'react';
 const Checkout = ({ cart }) => {
-
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0); // Scrolls the page to the top
+  }, []);
   const getTotalPrice = (cart) => {
+
     let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
       const cartItem = cart[i];

@@ -134,7 +134,7 @@ const PopularDish = ({ onAddToCart, appetizerDishes, pizzaDishes, pastaDishes, s
     <div className='popular-dish w-75 mx-auto text-center'>
       <h2 className="title">Món ngon phải thử</h2>
       <PopularDishNavBar />
-      <div className='listPopularDish row' style={{ backgroundColor: 'pink' }}>
+      <div className='listPopularDish row'>
         {activeTab === 'pizza' && popularPizzaRender}
         {activeTab === 'appetizer' && popularAppetizerRender}
         {activeTab === 'pasta' && popularPastaRender}
