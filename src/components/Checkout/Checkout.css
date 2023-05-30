@@ -101,8 +101,13 @@
 }
 
 .subtotal,
-.voucher {
+.voucher,
+.discount-amount {
     padding-top: 23px
+}
+
+.discount-amount {
+    color: var(--primary-color-2)
 }
 
 .order {
@@ -116,6 +121,14 @@
 .voucher {
     font-weight: 600;
     color: var(--primary-color-1)
+}
+
+.voucher button {
+    background-color: var(--primary-color-1);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.1rem !important;
 }
 
 .order h2 {
@@ -142,4 +155,18 @@
     transform: scale(1.1);
     opacity: 1;
     background-color: var(--primary-color-2);
+}
+
+.modal-body {
+    font-size: 1.1rem;
+    margin: 0 auto !important;
+}
+
+.submit-btn {
+    background-color: var(--primary-color-1);
+    border: none !important;
+    margin: 0 auto !important;
+    width: 20%;
+    color: white;
+    padding: 5px
 }

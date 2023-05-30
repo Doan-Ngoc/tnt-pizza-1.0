@@ -3,6 +3,7 @@ import './Cart.css'
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity }) => {
 
@@ -24,7 +25,12 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
 
     return totalPrice;
   };
+
+
+
   const totalPrice = getTotalPrice(cart);
+
+
   const cartBodyElements = cart.map((cartItem, index) => {
     const { title, image, price, id, quantity } = cartItem;
     return (
@@ -72,60 +78,46 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
   })
   return (
     <div>
-      <div className="container w-75 my-5">
-        <h3 className="home-shoppingCart">
-          <span>Giỏ hàng của bạn</span>
-        </h3>
-        <div>
-          <table className="table table-car my-5 text-center">
-            <thead>
-              <tr>
-                <th scope="col" style={{ width: "130px" }}>#</th>
+      {cart.length > 0 ? (
+        <div className="container w-75 my-5">
+          <h3 className="home-shoppingCart">
+            <span>Giỏ hàng của bạn</span>
+          </h3>
+          <div>
+            <table className="table table-car my-5 text-center">
+              <thead>
+                <tr>
+                  <th scope="col" style={{ width: "130px" }}>#</th>
 
-                <th scope="col"></th>
-                <th scope="col">Sản phẩm</th>
-                <th scope="col">Giá tiền</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Thành tiền</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartBodyElements}
-              <tr style={{ backgroundColor: 'var(--background-color-1' }} >
-                <td style={{ fontWeight: "600" }} colspan="2">Tổng đơn hàng:</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style={{ fontWeight: "600" }} >{totalPrice}</td>
-                <td></td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--background-color-1' }} >
-                <td style={{ fontWeight: "600" }} colspan="2">Phí giao hàng:</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style={{ fontWeight: "600" }}>0 đ</td>
-                <td></td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--background-color-1' }} >
-                <td style={{ fontWeight: "600" }} colspan="2">Tổng thanh toán:</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style={{ fontWeight: "600" }}>{totalPrice} đ</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
+                  <th scope="col"></th>
+                  <th scope="col">Sản phẩm</th>
+                  <th scope="col">Giá tiền</th>
+                  <th scope="col">Số lượng</th>
+                  <th scope="col">Tổng tiền</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartBodyElements}
+                <tr style={{ backgroundColor: 'var(--background-color-1' }} >
+                  <td style={{ fontWeight: "600", fontSize: "1.1rem" }} colspan="2">Tổng đơn hàng:</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td style={{ fontWeight: "600", fontSize: "1.1rem" }} >{totalPrice} đ</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className='w-100 d-flex justify-content-center'>
+            <button className="Proceed-to-checkout rounded-pill" onClick={onNavigateToCheckOut}>
+              Thanh toán
+            </button>
+          </div>
         </div>
-        <div className='w-100 d-flex justify-content-center'>
-          <button className="Proceed-to-checkout rounded-pill" onClick={onNavigateToCheckOut}>
-            Thanh toán
-          </button>
-        </div>
-      </div>
-
+      ) : <div className="m-5 d-flex justify-content-center align-items-center">
+        <h4 >Giỏ hàng của bạn chưa có sản phẩm nào, <Link to="/menu">tiếp tục mua sắm</Link></h4></div>}
     </div>
   )
 }

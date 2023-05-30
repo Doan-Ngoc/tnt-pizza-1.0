@@ -13,7 +13,8 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+<!--Jquery-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <!--Google Font-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,16 +39,24 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Spide-->
-  <script src="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-"></script>
-<link href="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
-" rel="stylesheet">
+
+  <!--Hiển thị modal ở trang thanh toán chỉ khi mọi input đều đã được nhập-->
+  <script>
+  $(function() {
+    $("#place-order").click(function() {
+      if ($("#fullname").val() != "" && $("#address").val() != ""
+      && $("#phone").val() != "" && $("#email").val() != "") {
+        $('#exampleModal').modal('show'); 
+      }
+    });
+  });
+</script>
+<!--Xóa modal giỏ hàng ở header khi sang trang thanh toán-->
 <script>
-var splide = new Splide( '.splide' );
-splide.mount();
+  $(function() {
+    $("#zzz").click(function() {
+      $('#exampleModal').modal('hide'); 
+    })
 </script>
 </body>
 

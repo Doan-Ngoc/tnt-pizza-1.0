@@ -11,3 +11,16 @@
   --primary-color-3: #ffb200;
   --background-color-1: #f6f6f6;
 }
+
+.App {
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content{
+  flex: 1;
+}
+.footer-section {
+  flex-shrink: 0;
+}

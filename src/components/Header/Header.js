@@ -11,7 +11,6 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity 
       const cartItem = cart[i];
       totalPrice += cartItem.price * cartItem.quantity;
     }
-
     return totalPrice;
   };
   const totalPrice = getTotalPrice(cart);
@@ -21,6 +20,9 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity 
     const to = `/cart`;
     navigate(to);
   };
+
+
+
   const cartContainer = cart.map((cartItem) => {
     const { title, image, price, id, quantity } = cartItem;
     return <div className='cart-item d-flex justify-content-between gap-5 px-5 py-4'>

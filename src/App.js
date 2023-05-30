@@ -10,6 +10,7 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart';
 import mockPopularDish from './mockData/mockPopularDish'
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 const App = () => {
   const [popularDish, setPopularDish] = useState([])
@@ -129,47 +130,53 @@ const App = () => {
         onDecreaseQuantity={onDecreaseQuantity}
         onIncreaseQuantity={onIncreaseQuantity}
       />
-      <Routes>
-        <Route path="/" element={<Homepage
-          onAddToCart={onAddToCart}
-          appetizerDishes={appetizerDishes}
-          pizzaDishes={pizzaDishes}
-          pastaDishes={pastaDishes}
-          saladDishes={saladDishes}
-        />
-        } />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route
-          path="/menu"
-          element={<Menu
-            comboDishes={comboDishes}
-            pizzaDishes={pizzaDishes}
-            chickenDishes={chickenDishes}
+      <section className='page-content'>
+        <Routes>
+          <Route path="/" element={<Homepage
+            onAddToCart={onAddToCart}
             appetizerDishes={appetizerDishes}
+            pizzaDishes={pizzaDishes}
             pastaDishes={pastaDishes}
             saladDishes={saladDishes}
-            drinkDishes={drinkDishes}
-            onAddToCart={onAddToCart}
-          />}
-        />
-        <Route
-          path="/dish-details/:id"
-          element={<ProductDetails
-            popularDish={popularDish}
-            comboDishes={comboDishes}
-            pizzaDishes={pizzaDishes}
-            chickenDishes={chickenDishes}
-            appetizerDishes={appetizerDishes}
-            pastaDishes={pastaDishes}
-            saladDishes={saladDishes}
-            drinkDishes={drinkDishes}
-            onAddToCart={onAddToCart}
-          />}
-        />
-        <Route path='/checkout' element={<Checkout cart={cart} />} />
-        <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct} onDecreaseQuantity={onDecreaseQuantity} onIncreaseQuantity={onIncreaseQuantity} />} />
-      </Routes>
-      <Footer />
+          />
+          } />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route
+            path="/menu"
+            element={<Menu
+              comboDishes={comboDishes}
+              pizzaDishes={pizzaDishes}
+              chickenDishes={chickenDishes}
+              appetizerDishes={appetizerDishes}
+              pastaDishes={pastaDishes}
+              saladDishes={saladDishes}
+              drinkDishes={drinkDishes}
+              onAddToCart={onAddToCart}
+            />}
+          />
+          <Route
+            path="/dish-details/:id"
+            element={<ProductDetails
+              popularDish={popularDish}
+              comboDishes={comboDishes}
+              pizzaDishes={pizzaDishes}
+              chickenDishes={chickenDishes}
+              appetizerDishes={appetizerDishes}
+              pastaDishes={pastaDishes}
+              saladDishes={saladDishes}
+              drinkDishes={drinkDishes}
+              onAddToCart={onAddToCart}
+            />}
+          />
+          <Route path='/checkout' element={<Checkout cart={cart} />} />
+          <Route path='/cart' element={<Cart cart={cart} onDeleteProduct={onDeleteProduct} onDecreaseQuantity={onDecreaseQuantity} onIncreaseQuantity={onIncreaseQuantity} />} />
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+      </section>
+      <div className='footer-section'>
+
+        <Footer />
+      </div>
     </div>
   );
 };
