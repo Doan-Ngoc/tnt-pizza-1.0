@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "./ProductDetails.css";
@@ -9,18 +8,26 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
   const [selectedSize, setSelectedSize] = useState('Nhỏ 6"');
   const [selectedCrust, setSelectedCrust] = useState('Dày');
   const [totalPrice, setTotalPrice] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const findProduct = (productId) => {
+      const allDishes = [
+        ...comboDishes,
+        ...pizzaDishes,
+        ...chickenDishes,
+        ...appetizerDishes,
+        ...pastaDishes,
+        ...saladDishes,
+        ...drinkDishes
+      ];
+      return allDishes.find((dish) => dish.id === productId);
+    };
+
     const product = findProduct(id);
     if (product) {
       setProduct(product);
-      setIsLoading(false);
     }
-  }, [id]);
 
-  useEffect(() => {
-    // Tính toán tổng giá dựa trên kích thước và đế pizza đã chọn
     let additionalPrice = 0;
     if (selectedSize === 'Nhỏ 6"') {
       additionalPrice = 0;
@@ -43,20 +50,14 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
     const productPrice = product ? product.price : 0;
     const total = productPrice + additionalPrice;
     setTotalPrice(total);
-  }, [selectedSize, selectedCrust, product]);
+  }, [id, selectedSize, selectedCrust, comboDishes, pizzaDishes, chickenDishes, appetizerDishes, pastaDishes, saladDishes, drinkDishes]);
 
-  const findProduct = (productId) => {
-    const allDishes = [...popularDish, ...comboDishes, ...pizzaDishes, ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
-    return allDishes.find((dish) => dish.id === productId);
-  };
-
- 
   const handleSizeChange = (event) => {
     if (product && pizzaDishes.some(dish => dish.id === product.id)) {
       setSelectedSize(event.target.value);
     }
   };
-  
+
   const handleCrustChange = (event) => {
     if (product && pizzaDishes.some(dish => dish.id === product.id)) {
       setSelectedCrust(event.target.value);
@@ -69,7 +70,6 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
 
   const { title, image, price, content } = product;
   const isPizzaDish = pizzaDishes.some(dish => dish.id === product.id);
-
 
   return (
     <div style={{ marginBottom: "100px" }} className="container">

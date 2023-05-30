@@ -34,7 +34,7 @@ const App = () => {
       .then(data => setPizzaDishes(data));
 
     // Gọi API Gà Giòn
-    fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
+    fetch('https://6475a68be607ba4797dc40d2.mockapi.io/gaGion/product')
       .then(response => response.json())
       .then(data => setChickenDishes(data));
 
