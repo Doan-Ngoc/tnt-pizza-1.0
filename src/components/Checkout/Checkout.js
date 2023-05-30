@@ -8,6 +8,17 @@ const Checkout = ({ cart }) => {
   }, []);
   const getTotalPrice = (cart) => {
 
+    
+    window.$(function() {
+      window.$("#place-order").click(function() {
+      if ( window.$("#fullname").val() != "" &&  window.$("#address").val() != ""
+      &&  window.$("#phone").val() != "" &&  window.$("#email").val() != "") {
+        window.$('#exampleModal').modal('show'); 
+      }
+    });
+  });
+
+
     let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
       const cartItem = cart[i];
@@ -104,7 +115,7 @@ const Checkout = ({ cart }) => {
               <div className='subtotal-price'>{finalPrice} đ</div>
             </div>
             <div className='w-100 d-flex justify-content-center'>
-              <button type="button" className="place-order rounded-pill" id='place-order'>
+              <button type="button" className="place-order rounded-pill"  id='place-order'>
                 Đặt hàng
               </button>
             </div>
@@ -124,7 +135,6 @@ const Checkout = ({ cart }) => {
           </div>
         </div>
       </div>
-
 
     </div>
   )
