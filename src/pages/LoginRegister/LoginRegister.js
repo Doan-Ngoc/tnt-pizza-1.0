@@ -37,7 +37,6 @@ const LoginRegister = () => {
   useEffect(()=>{})
   const onFormSubmitLoginHandle = (e) => {
     e.preventDefault();
-    // setLogin(valueLogin)
     onCheckPassword()
   }
   const onChangeValueForm = (e) => {
@@ -60,7 +59,6 @@ const LoginRegister = () => {
       alert("Đăng nhập không đúng. Xin vui lòng nhập lại")
 
     } else {
-
       setSuccessLogin(true)
       alert("Đăng nhập thành công")
       onNavigateToCheckoutPage()
@@ -155,8 +153,8 @@ const LoginRegister = () => {
                 message: "Vui lòng nhập mật khẩu"
               },
               pattern: {
-                value: /^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[A-Z])[A-Za-z\d!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]{8,}$/,
-                message: "Mật khẩu có ít nhất 8 kí tự bao gồm có một chữ in hoa, một chữ số, một kí tự đặc biệt"
+                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/,
+                message: "Mật khẩu có ít nhất 8 kí tự bao gồm có một kí tự đặc biệt"
               },
               minLength: {
                 value: 8,

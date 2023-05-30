@@ -1,7 +1,7 @@
 
 import './Header.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { FaTrashAlt, FaUserAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity }) => {
 
   const lengthCart = cart.length;
@@ -72,9 +72,9 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity 
               <Link className="nav-link" to="/menu">Menu</Link>
             </li>
           </ul>
-          <Link to={'/login&register'}>
+          {/* <Link to={'/login&register'}>
             <FaUserAlt style={{color:"white"}}/>
-          </Link>
+          </Link> */}
           <button className='btn rounded-pill cart-btn d-flex align-items-center gap-1 mx-5' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             <i className="fa fa-shopping-cart mr-2"></i>
             Giỏ hàng
