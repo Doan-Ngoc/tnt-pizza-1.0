@@ -3,25 +3,28 @@ import { Link } from 'react-router-dom'
 
 const Delivery = () => {
   return (
-    <div className='delivery d-flex w-75'>
-      <img className="delivery-img img-fluid" src='images/homepage/delivery.gif' />
-      <div className='delivery-text'>
-        <h2 className="title">YOUR FAVORITE PIZZA, ON THE WAY!</h2>
+    <div className='delivery-container w-100' style={{ backgroundImage: "url('images/homepage/wave-background.png')" }}>
+      <div className='delivery d-flex w-75' >
 
-        <div className='delivery-benefit-item d-flex  gap-4 align-items-center px-3 py-2'>
-          <i class="material-icons">house</i>
-          <span >Delivery in 30 minutes</span>
+        <img className="delivery-img img-fluid" src='images/homepage/delivery.png' />
+        <div className='delivery-text'>
+          <h2 className="title">Giao hàng tận nơi, <br /> đặt là tới liền</h2>
+
+          <div className='delivery-benefit-item  rounded-pill d-flex  gap-4 align-items-center px-3 py-2'>
+            <i class="fa fa-home"></i>
+            <span >Giao hàng siêu tốc trong vòng 30 phút</span>
+          </div>
+          <div className='delivery-benefit-item  rounded-pill d-flex  gap-4 align-items-center px-3 py-2'>
+            <i class="fa fa-donate"></i>
+            <span >Miễn phí ship với đơn hàng trên 500.000đ</span>
+          </div>
+          <Link to="/menu">
+            <button className='btn rounded-pill w-30 order-now, order-now-btn'
+            >Đặt món ngay</button>
+          </Link>
+
+
         </div>
-        <div className='delivery-benefit-item d-flex  gap-4 align-items-center px-3 py-2'>
-          <i class="material-icons">fastfood</i>
-          <span >Free Shipping From 75$</span>
-        </div>
-        <Link to="/menu">
-          <button className='btn rounded-pill w-30 order-now, order-now-btn'
-          >Order Now</button>
-        </Link>
-
-
       </div>
     </div>
   )

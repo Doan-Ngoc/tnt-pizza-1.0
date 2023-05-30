@@ -23,31 +23,35 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity 
   };
   const cartContainer = cart.map((cartItem) => {
     const { title, image, price, id, quantity } = cartItem;
-    return <div className='cart-item'>
-      <div className="cart-total">
-        <div className="cart-img"><img src={image} alt={title} /></div>
-        <div className="cart-name">{title}</div>
+    return <div className='cart-item d-flex justify-content-between gap-5 px-5 py-4'>
+      <div className="cart-img w-25"><img className='header-cart-item-img' src={image} alt={title} /></div>
+      <div className='cart-item-info w-75 d-flex flex-column gap-3'>
+        <div className='d-flex justify-content-between'>
+          <div className="cart-name">{title}</div>
+          <button className="close" onClick={() => onDeleteProduct(id)}><FaTrashAlt className='trash' /></button>
+        </div>
+        <div className='d-flex justify-content-between align-items-center '>
+          <div className="quantity-item">
+            <button
+              style={{ background: "#0b603d", padding: "5px 10px", marginRight: "5px" }}
+              className="btn btn-primary btn-sm"
+              onClick={() => onDecreaseQuantity(id)}
+            // disabled={isDisabledDecreaseButton}
+            >
+              -
+            </button>
+            <span style={{ fontSize: "1.3rem" }}> {quantity}</span>
+            <button
+              style={{ background: "#0b603d", padding: "5px 10px", marginLeft: "10px" }}
+              className="btn btn-primary btn-sm"
+              onClick={() => onIncreaseQuantity(id)}
+            >
+              +
+            </button>
+          </div>
+          <div className="price-item">{price}</div>
+        </div>
       </div>
-      <div className="price-item">{price}</div>
-      <div className="quantity-item">
-        <button
-          style={{ background: "#0b603d", padding:"5px 10px" }}
-          className="btn btn-primary"
-          onClick={() => onDecreaseQuantity(id)}
-        // disabled={isDisabledDecreaseButton}
-        >
-          -
-        </button>
-        <span> {quantity}</span>
-        <button
-          style={{ background: "#0b603d", padding:"5px 10px", marginLeft:"5px" }}
-          className="btn btn-primary"
-          onClick={() => onIncreaseQuantity(id)}
-        >
-          +
-        </button>
-      </div>
-      <button className="close" onClick={() => onDeleteProduct(id)}><FaTrashAlt className='trash' /></button>
     </div>
   })
 
@@ -55,7 +59,7 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity 
     <div className="header">
       <nav className="navbar navbar-expand-lg">
         <div className="navbar-brand">
-          <Link to="/"><img src="/logo.png" /></Link>
+          <Link to="/"><img className='header-logo' src="/logo.png" /></Link>
         </div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -82,19 +86,16 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity 
             {cartContainer}
             {
               lengthCart ? (
-                <>
-                  <div className='total-price'>
-                    <h4>Total: </h4>
+                <div className=' py-4 px-5' style={{ backgroundColor: "var(--background-color-1)" }}>
+                  <div className='total-price pb-4'>
+                    <h4>Tổng tiền: </h4>
                     <span className='totalPrice'>{totalPrice} đ</span>
                   </div>
-
-                  <div>
-                    <button onClick={onNavigateToProductDetail} className='btn-checkout' data-bs-dismiss="collapse">Check Out</button>
-                  </div>
-                </>
+                  <button onClick={onNavigateToProductDetail} className='btn-checkout rounded-pill py-3' data-bs-dismiss="collapse">Thanh toán</button>
+                </div>
 
               )
-                : (<p className='content-cart'>No Product!</p>)
+                : (<p className='content-cart'>Chưa có sản phẩm trong giỏ hàng!</p>)
             }
 
 

@@ -2,8 +2,13 @@ import React from 'react'
 import './Cart.css'
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+
 const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity }) => {
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0); // Scrolls the page to the top
+  }, []);
   const navigate = useNavigate();
   const onNavigateToCheckOut = () => {
     const to = `/checkout`;
@@ -24,15 +29,15 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
     const { title, image, price, id, quantity } = cartItem;
     return (
       <tr key={id}>
-        <th style={{paddingTop:"20px"}} scope="row">{index+1}</th>
-
-        <td style={{paddingTop:"20px"}}>{title}</td>
+        <th style={{ paddingTop: "20px" }} scope="row">{index + 1}</th>
         <td >
           <img src={image} alt={title} style={{
             width: "50%", height: "50px"
           }} />
         </td>
-        <td style={{paddingTop:"20px"}}>{price}</td>
+        <td style={{ paddingTop: "20px" }}>{title}</td>
+
+        <td style={{ paddingTop: "20px" }}>{price}</td>
         <td>
           <button
             style={{ background: "#0b603d" }}
@@ -51,7 +56,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             +
           </button>
         </td>
-        <td style={{paddingTop:"20px"}}>{quantity * price}</td>
+        <td style={{ paddingTop: "20px" }}>{quantity * price}</td>
         <td>
           <button
             style={{ background: "none", color: "#00814b", border: "none" }}
@@ -61,62 +66,63 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             <FaTrashAlt />
           </button>
         </td>
-
       </tr>
     )
 
   })
   return (
     <div>
-      <div className="container">
+      <div className="container w-75 my-5">
         <h3 className="home-shoppingCart">
-          <p>HOME/</p><span> SHOPPING CART</span>
+          <span>Giỏ hàng của bạn</span>
         </h3>
         <div>
-          <table className="table table-cart">
+          <table className="table table-car my-5 text-center">
             <thead>
               <tr>
                 <th scope="col" style={{ width: "130px" }}>#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Image</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
-                <th scope="col">...</th>
+
+                <th scope="col"></th>
+                <th scope="col">Sản phẩm</th>
+                <th scope="col">Giá tiền</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Thành tiền</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               {cartBodyElements}
-              <tr>
-                <td style={{ fontWeight: "700" }}>Total price</td>
+              <tr style={{ backgroundColor: 'var(--background-color-1' }} >
+                <td style={{ fontWeight: "600" }} colspan="2">Tổng đơn hàng:</td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td style={{ fontWeight: "600" }} >{totalPrice}</td>
                 <td></td>
-                <td style={{ fontWeight: "700" }}>{totalPrice}</td>
+              </tr>
+              <tr style={{ backgroundColor: 'var(--background-color-1' }} >
+                <td style={{ fontWeight: "600" }} colspan="2">Phí giao hàng:</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style={{ fontWeight: "600" }}>0 đ</td>
+                <td></td>
+              </tr>
+              <tr style={{ backgroundColor: 'var(--background-color-1' }} >
+                <td style={{ fontWeight: "600" }} colspan="2">Tổng thanh toán:</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style={{ fontWeight: "600" }}>{totalPrice} đ</td>
                 <td></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="Cart-Total">
-          <h3 className="CartP">Cart Totals</h3>
-          <div className="Cart">
-            <div className="text">Subtotal</div>
-            <div className="text bill"><span>{totalPrice} đ</span></div>
-          </div>
-          <hr />
-          <div className="Cart">
-            <div className="text">Shipping Free</div>
-            <div className="text">Free!!!</div>
-          </div>
-          <hr />
-          <div className="Cart">
-            <div>Total</div>
-            <div className="text bill1 "><span>{totalPrice} đ</span></div>
-          </div>
-          <button className="Proceed-to-checkout" onClick={onNavigateToCheckOut}>PROCEED TO
-            CHECKOUT</button>
+        <div className='w-100 d-flex justify-content-center'>
+          <button className="Proceed-to-checkout rounded-pill" onClick={onNavigateToCheckOut}>
+            Thanh toán
+          </button>
         </div>
       </div>
 

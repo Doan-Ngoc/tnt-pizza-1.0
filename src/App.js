@@ -21,7 +21,6 @@ const App = () => {
   const [saladDishes, setSaladDishes] = useState([]);
   const [drinkDishes, setDrinkDishes] = useState([]);
   const [cart, setCart] = useState([]);
-
   useEffect(() => {
     // Gọi API Combo
     fetch('https://646dc9739c677e23218a6722.mockapi.io/api/v1/combo')
@@ -29,7 +28,8 @@ const App = () => {
       .then(data => setComboDishes(data));
 
     // Gọi API Pizza
-    fetch('https://6469caf903bb12ac2092bad9.mockapi.io/product-my-y')
+    fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
+
       .then(response => response.json())
       .then(data => setPizzaDishes(data));
 
@@ -45,7 +45,7 @@ const App = () => {
     console.log("Khai vị", appetizerDishes)
 
     // Gọi API Mỳ ý
-    fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
+    fetch('https://6469caf903bb12ac2092bad9.mockapi.io/product-my-y')
       .then(response => response.json())
       .then(data => setPastaDishes(data));
 
@@ -130,7 +130,14 @@ const App = () => {
         onIncreaseQuantity={onIncreaseQuantity}
       />
       <Routes>
-        <Route path="/" element={<Homepage onAddToCart={onAddToCart} />} />
+        <Route path="/" element={<Homepage
+          onAddToCart={onAddToCart}
+          appetizerDishes={appetizerDishes}
+          pizzaDishes={pizzaDishes}
+          pastaDishes={pastaDishes}
+          saladDishes={saladDishes}
+        />
+        } />
         <Route path="/about-us" element={<AboutUs />} />
         <Route
           path="/menu"

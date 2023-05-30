@@ -8,6 +8,7 @@
     font-weight: 600;
     line-height: 22px;
     margin-bottom: 4px;
+    color: var(--primary-color-1)
 }
 
 .product-image-container,
@@ -105,14 +106,14 @@ option {
 
 .product-count .qtyminus {
     border-radius: 3px 0 0 3px;
-    border:none;
+    border: none;
     transition: all 0.3s;
     opacity: 0.8;
 }
 
 .product-count .qtyplus {
     border-radius: 0 3px 3px 0;
-    border:none;
+    border: none;
     opacity: 0.8;
 }
 
@@ -120,6 +121,7 @@ option {
 .product-count .qtyplus:hover {
     opacity: 1;
 }
+
 .product-count .qty {
     width: 60px;
     text-align: center;

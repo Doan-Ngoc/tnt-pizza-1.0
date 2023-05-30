@@ -7,20 +7,20 @@ import './ProductItem.css';
 const ProductItem = ({ productName, productImage, productPrice, productDescription, id, onAddToCart }) => {
 
   return (
-    <div className="product-item card d-flex flex-column align-items-center">
-
-      <img src={productImage} className="card-img-top" alt={productName} />
-
+    <div className="product-item card">
+      <div className="card-img-top">
+        <img src={productImage} className="card-img-top" alt={productName} />
+      </div>
       <div className="card-body text-center">
 
-        <h5 className="card-titled">{productName}</h5>
-        <div className='d-flex justify-content-between mb-3'>
+        <h5 className="card-title">{productName}</h5>
+        <div className='price-and-btn d-flex justify-content-center align-items-center gap-4'>
           <p className="card-text">{productPrice} đ</p>
+          <Link to={`/dish-details/${id}`}>
+            <button className="cart-item-buy-btn btn btn-primary rounded-pill">
+              Mua ngay </button>
+          </Link>
         </div>
-        <Link to={`/dish-details/${id}`} className="card-img-top">
-          <button className="btn btn-primary rounded-pill">
-            Xem chi tiết </button>
-        </Link>
       </div>
     </div>
   );

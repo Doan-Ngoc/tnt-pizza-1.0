@@ -7,14 +7,14 @@
   margin: 100px auto;
 }
 
-h1 {
-  padding: 0 auto;
-}
-
 .about-us-container {
   display: flex;
   justify-content: space-between;
   margin-top: 100px;
+}
+
+.about-us-header {
+  width: 40%
 }
 
 .about-us-text,
@@ -31,4 +31,19 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.about-us-text {
+  padding: 20px 0
+}
+
+.about-us h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.about-us i:hover {
+  color: black;
+  cursor: default
 }

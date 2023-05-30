@@ -11,23 +11,23 @@ const AboutUs = () => {
   }, []);
   return (
     <div className='about-us'>
-      <h1>OUR STORY</h1>
+      <img className='about-us-header img-fluid' src="images\about-us\about-us-title-1.png"
+      />
       <div className="about-us-container">
         <div className='about-us-text'>
+          <h2 ><span
+            style={{ color: "var(--primary-color-1)" }}>"Điều kỳ diệu của Pizza”</span> là
+            nguồn gốc của nhà hàng chúng tôi</h2>
           <i>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum ligula felis, vitae lacinia turpis
-              tincidunt a. Nullam id sollicitudin nisi, eu cursus justo. Donec tincidunt eros ac eleifend pharetra. Fusce
-              posuere elit at arcu bibendum, in eleifend lacus fermentum. Sed volutpat lacus ut nunc tempor, ac pulvinar
-              nulla malesuada.
+              Với phương châm "Delivering Wow, Sharing Happiness", chúng tôi hướng tới mục tiêu mang đến những trải nghiệm tuyệt vời cho tất cả các khách hàng thân thiết của mình. Đối với chúng tôi, nhà hàng không chỉ là nơi để ăn uống. Chúng tôi thực sự mong muốn mỗi khách hàng khi đến với nhà hàng đều trở về với tâm trạng hạnh phúc bởi vì thức ăn, cung cách phục vụ và không khí ở nhà hàng, những thứ góp phần đem lại trải nghiệm "Wow" cho khách hàng.
             </p>
             <p>
-              Morbi at neque in nibh consectetur tempus at sit amet purus. Aliquam commodo nunc quam, ut tempus nunc
-              finibus a. Nulla facilisi. Duis consequat urna ut mi consequat, id scelerisque ligula aliquam. Aliquam
-              posuere efficitur nunc in commodo. Proin blandit laoreet eros a scelerisque.
+              Sứ mệnh của chúng tôi là chúng tôi đứng vững và làm việc hàng ngày để đạt được tầm nhìn này "Mang lại WOW, Chia sẻ hạnh phúc".
             </p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio excepturi dignissimos quaerat obcaecati ea beatae officia porro doloremque fuga? Ullam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sapiente magnam voluptatum delectus atque est.</p>
+            <p>
+              Chúng tôi sẽ tiếp tục trưởng thành và cải thiện mỗi ngày để có thể thực hiện được phương châm "Delivering Wow, Sharing Happiness" của chúng tôi.
+            </p>
           </i>
         </div>
         <div className='about-us-img'>

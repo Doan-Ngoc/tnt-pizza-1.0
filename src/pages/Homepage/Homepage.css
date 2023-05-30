@@ -20,18 +20,17 @@
 /*Why Us*/
 .why-us,
 .new-dish {
-  margin: 100px auto;
+  margin: 70px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .title {
-  font-size: 3rem !important
-}
-
-h2 {
-  font-weight: 700 !important;
+  font-size: 2.4rem !important;
+  font-weight: 600 !important;
+  padding-bottom: 0 !important;
+  font-family: 'Kanit', sans-serif;
 }
 
 .why-us-text,
@@ -56,6 +55,10 @@ h2 {
   gap: 30px;
 }
 
+.why-us-text p {
+  font-size: 1.2rem
+}
+
 .why-us-reasons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -74,7 +77,7 @@ h2 {
 }
 
 .why-us-reasons-item span {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -82,7 +85,7 @@ h2 {
 .scroll-img.spin {
   animation: spin 3s;
   animation-iteration-count: 1;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
 }
 
 @keyframes spin {
@@ -99,8 +102,6 @@ h2 {
 .new-dish-container {
   margin-top: 200px;
   margin-bottom: 100px;
-  height: 500px;
-  position: relative;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -124,7 +125,7 @@ h2 {
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding: 50px 0;
   color: white;
 }
 
@@ -133,22 +134,40 @@ h2 {
   height: 320px;
 }
 
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0) rotate(20deg);
+  }
+
+  50% {
+    transform: translateY(-30px) rotate(20deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(20deg);
+  }
+}
+
 .new-dish-img img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-30%, -48%) rotate(30deg);
+  top: -80%;
+  left: 15%;
   width: auto;
   height: 270%;
+  animation: moveUpDown 2s linear infinite;
+}
+
+.new-dish p {
+  font-size: 1.1rem;
 }
 
 .new-dish button,
 .delivery button {
   width: 40%;
   font-size: 1.4rem;
-  background-color: var(--primary-color-3);
+  background-color: var(--primary-color-2);
   font-weight: 500;
-  color: white !important
+  color: white !important;
 }
 
 .order-now-btn {
@@ -197,10 +216,11 @@ h2 {
   flex-direction: column;
   gap: 40px;
   justify-content: center;
+}
 
-  .listPopularDish {
-    margin-bottom: 30px;
-  }
+.listPopularDish {
+  margin: 0;
+  flex-wrap: wrap;
 }
 
 .product-item {
@@ -238,6 +258,11 @@ h2 {
   font-weight: 500;
 }
 
+.popular-dish h2 {
+  margin: 20px 0 30px !important;
+  text-transform: uppercase
+}
+
 .popular-dish h4 {
   color: var(--primary-color-1);
   font-weight: 600;
@@ -266,8 +291,23 @@ h2 {
   display: inline-block;
 }
 
+/*Coupon*/
+.coupon-img {
+  display: flex;
+  width: 75%;
+  margin: 120px auto !important;
+}
+
 
 /*Delivery*/
+.delivery-container {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 110vw 100%;
+  margin: 100px 0;
+  width: 60% !important
+}
+
 .delivery {
   margin: 50px auto !important;
   display: flex;
@@ -275,6 +315,10 @@ h2 {
   justify-content: space-between;
 }
 
+.delivery-img {
+  margin-bottom: 50px;
+  height: 600px !important;
+}
 
 .delivery-benefit {
   display: flex;
@@ -285,7 +329,6 @@ h2 {
   background-color: var(--primary-color-3);
   position: relative;
   padding: 10px;
-  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -299,8 +342,13 @@ h2 {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
+.delivery h2 {
+  color: white !important;
+  margin-left: 0
+}
+
 .delivery i {
-  font-size: 36px;
+  font-size: 2rem;
   color: var(--primary-color-1)
 }
 

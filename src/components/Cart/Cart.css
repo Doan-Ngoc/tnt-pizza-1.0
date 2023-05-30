@@ -4,7 +4,6 @@
     line-height: 17px;
     display: flex;
     gap: 5px;
-    padding-top: 40px;
 }
 
 .home-shoppingCart p {
@@ -13,6 +12,14 @@
 
 .home-shoppingCart span {
     color: #00814b;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.table-cart th {
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .product-price {
@@ -53,11 +60,9 @@ hr {
 }
 
 .Proceed-to-checkout {
-    width: 250px;
-    margin-top: 50px;
     border: none;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #00814b;
     color: #FFFFFF;
     cursor: pointer;
@@ -65,7 +70,7 @@ hr {
 }
 
 .Proceed-to-checkout:hover {
-    background-color: #00814b;
+    background-color: var(--primary-color-2);
     transform: scale(1.1);
 }
 
@@ -78,6 +83,6 @@ hr {
 }
 
 .table-cart {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kanit', sans-serif !important;
     text-align: center;
 }

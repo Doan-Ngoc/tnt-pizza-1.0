@@ -18,75 +18,47 @@ const Checkout = ({ cart }) => {
     return (
       <tr key={id}>
         <td>{title}</td>
-        <td className="subtotal-price"><span style={{width:"20px"}}>x{quantity} </span>   <span style={{marginLeft:"50px"}}>{price}</span></td>
+        <td className="subtotal-price"><span style={{ width: "20px" }}>x{quantity} </span>   <span style={{ marginLeft: "50px" }}>{price}</span></td>
       </tr>
     )
   })
   return (
     <div className='checkout container'>
-      <div className="title-checkout">
-        <p>HOME/</p>
-        <span>CHECKOUT</span>
-      </div>
-      <div className="billing-detail">
-        <h2>Billing details</h2>
-        <div className="input-name">
-          <span htmlFor="fullname">Full Name</span><span style={{ color: '#D6763C' }}>*</span>
-          <div><input type="text" id="fullname" /></div>
+      <div className="billing-detail w-50 m-auto">
+        <h2 className='mb-4 text-center'>Thông tin đơn hàng</h2>
+        <div style={{ backgroundColor: "var(--background-color-1", padding: 30, borderRadius: '20px' }}>
+          <div className="input-name">
+            <span htmlFor="fullname">Tên của bạn</span><span style={{ color: '#D6763C' }}>*</span>
+            <div><input type="text" id="fullname" /></div>
+          </div>
+          <div className="input-address">
+            <span htmlFor="address">Địa chỉ giao hàng</span><span style={{ color: '#D6763C' }}>*</span>
+            <div><input type="text" id="address" /></div>
+          </div>
+          <div className="input-phone">
+            <span htmlFor="phone">Số điện thoại</span><span style={{ color: '#D6763C' }}>*</span>
+            <div><input type="text" id="phone" /></div>
+          </div>
+          <div className="input-mail">
+            <span htmlFor="mail">Địa chỉ email</span><span style={{ color: '#D6763C' }}>*</span>
+            <div><input type="text" id="mail" /></div>
+          </div>
+          <div className='voucher w-100 d-flex justify-content-between align-items-ends'>
+            <div>Mã giảm giá</div>
+            <div><input style={{ padding: " 0px 10px " }} type='text' /></div>
+          </div>
+          <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
+            <div>Tổng thanh toán</div>
+            <div className='subtotal-price'>{totalPrice} đ</div>
+          </div>
         </div>
-        <div className="input-address">
-          <span htmlFor="address">Street address</span><span style={{ color: '#D6763C' }}>*</span>
-          <div><input type="text" id="address" /></div>
-        </div>
-        <div className="input-city">
-          <span htmlFor="towncity">Town / City</span><span style={{ color: '#D6763C' }}>*</span>
-          <div><input type="text" id="towncity" /></div>
-        </div>
-        <div className="input-phone">
-          <span htmlFor="phone">Phone</span><span style={{ color: '#D6763C' }}>*</span>
-          <div><input type="text" id="phone" /></div>
-        </div>
-        <div className="input-mail">
-          <span htmlFor="mail">Email</span><span style={{ color: '#D6763C' }}>*</span>
-          <div><input type="text" id="mail" /></div>
-        </div>
-      </div>
-      <div className="order">
-        <h2>Your order</h2>
-        <table style={{ width: "60%" }} className="table">
-          <thead style={{ width: "600px" }}>
-            <tr>
-              <th style={{ width: "400px" }}>Product</th>
-              <th >Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              cartBodyElements
-            }
-
-            <tr className="subtotal">
-              <td style={{fontWeight:"700"}}>Subtotal</td>
-              <td className="subtotal-price">{totalPrice} đ</td>
-            </tr>
-            <tr className="voucher">
-              <td style={{fontWeight:"700"}}>Voucher</td>
-              <td className="subtotal-price"><input style={{padding:" 0px 10px "}} type='text'  /></td>
-            </tr>
-            <tr className="total">
-              <td style={{ width: "400px" }} />
-              <td className="total-price">{totalPrice} đ</td>
-            </tr>
-          </tbody>
-        </table>
-        <div className="place-order">
-          <p className="content-place-order">Cash on delivery. Please contact us if you require assistance or wish to
-            make alternate arrangements.</p>
-          <button>PLACE ORDER</button>
+        <div className='w-100 d-flex justify-content-center'>
+          <button className="place-order rounded-pill">
+            Đặt hàng
+          </button>
         </div>
       </div>
     </div>
-
   )
 }
 

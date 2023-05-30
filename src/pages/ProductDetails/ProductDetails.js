@@ -61,8 +61,8 @@ import React, { useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./ProductDetails.css";
 
-const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, appetizerDishes, 
-    pastaDishes, saladDishes, drinkDishes,  onAddToCart }) => {
+const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, appetizerDishes,
+  pastaDishes, saladDishes, drinkDishes, onAddToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -72,8 +72,8 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
 
   // Tìm sản phẩm trong các danh sách comboDishes, pizzaDishes, ...
   const findProduct = (productId) => {
-    const allDishes = [...popularDish, ...comboDishes, ...pizzaDishes, 
-        ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
+    const allDishes = [...popularDish, ...comboDishes, ...pizzaDishes,
+    ...chickenDishes, ...appetizerDishes, ...pastaDishes, ...saladDishes, ...drinkDishes];
     return allDishes.find(dish => dish.id === productId);
   };
 
@@ -84,9 +84,9 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
   if (!product) {
     return <div>Loading...Please Wait :</div>;
   }
-  const {title, image, price, content} = product;
+  const { title, image, price, content } = product;
   return (
-    <div style={{marginBottom:"100px"}} className="container">
+    <div style={{ marginBottom: "100px" }} className="container">
       <div className="row mt-5 product-container">
         <div className="product-image-container col-md-6">
           <img className="product-image" src={image} alt={title} />
@@ -116,7 +116,7 @@ const ProductDetails = ({popularDish, comboDishes, pizzaDishes, chickenDishes, a
                   </select>
                 </div>
               </div>
-                <a  onClick={() => onAddToCart(id)} href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
+              <a onClick={() => onAddToCart(id)} href="#" className="round-black-btn rounded-pill">Thêm vào giỏ hàng</a>
             </div>
           </div>
         </div>

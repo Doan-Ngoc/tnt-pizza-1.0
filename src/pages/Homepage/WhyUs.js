@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect } from 'react';
-
 const WhyUs = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -20,34 +19,41 @@ const WhyUs = () => {
 
   return (
     <div className='why-us w-75'>
+
       <div className='why-us-img d-flex justify-content-center'>
         <img className='scroll-img img-fluid' id="scroll-image" src='images\homepage\scroll-image.png' />
       </div>
       <div className='why-us-text' >
-        <h1 className="title">WE MAKE THE BEST PIZZA IN YOUR TOWN</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad est, recusandae officia voluptatum, ipsa nemo aperiam modi corrupti dolore atque unde vitae deserunt sequi temporibus sunt iure cum perspiciatis delectus!</p>
+        <h2 className="title">Một trải nghiệm ẩm thực đích thực</h2>
+        <p>
+          Phục vụ những món ăn ngon cho thực khách thưởng thức là một nghĩa vụ của chúng tôi. Pizza TNT luôn mong muốn mỗi vị khách khi thưởng thức những món ăn của chúng tôi đều cảm thấy phấn khích hơn, hạnh phúc hơn.
+          <br />
+          Mọi điều chúng tôi làm, luôn luôn hướng đến "Mang lại WOW, Chia sẻ hạnh phúc". Ở Pizza TNT, chúng tôi có 4 nguyên tắckhông bao giờ bị phá vỡ:
+        </p>
         <div className='why-us-reasons'>
           <div className='why-us-reasons-item'>
-            <i class="fa fa-pizza-slice"></i>
-            <span>Fresh food</span>
+            <i class="fa fa-cheese"></i>
+            <span>Phô mai tự sản xuất</span>
           </div>
 
           <div className='why-us-reasons-item'>
-            <i className="fa fa-shipping-fast"></i>
-            <span>Fast Delivery</span>
+            <i class="fa fa-pizza-slice"></i>
+            <span>Nguyên liệu thượng hạng</span>
           </div>
           <div className='why-us-reasons-item'>
             <i class="fa fa-utensils"></i>
-            <span>Quality Maintain</span>
+            <span>Hương vị nguyên bản</span>
           </div>
           <div className='why-us-reasons-item'>
             <i class="fa fa-clock"></i>
-            <span>24/7 Service</span>
+            <span>Giao hàng nhanh chóng</span>
           </div>
         </div>
       </div>
     </div>
+
   )
 }
 
 export default WhyUs
+
