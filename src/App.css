@@ -10,3 +10,7 @@
   --primary-color-3: #ffb200;
 
 }
+
+body{
+  max-width: 1440px;
+}

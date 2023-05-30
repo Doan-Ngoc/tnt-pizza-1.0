@@ -11,14 +11,14 @@ const Checkout = ({ cart }) => {
 
     return totalPrice;
   };
-  const totalPrice = getTotalPrice(cart);
+  const totalPrice = getTotalPrice(cart).toLocaleString('vi', {style : 'currency', currency : 'VND'});
 
   const cartBodyElements = cart.map((cartItem, index) => {
     const { title, price, id, quantity } = cartItem;
     return (
       <tr key={id}>
         <td>{title}</td>
-        <td className="subtotal-price"><span style={{width:"20px"}}>x{quantity} </span>   <span style={{marginLeft:"50px"}}>{price}</span></td>
+        <td className="subtotal-price"><span style={{width:"20px"}}>x{quantity} </span>   <span style={{marginLeft:"50px"}}>{price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span></td>
       </tr>
     )
   })
@@ -67,7 +67,7 @@ const Checkout = ({ cart }) => {
 
             <tr className="subtotal">
               <td style={{fontWeight:"700"}}>Subtotal</td>
-              <td className="subtotal-price">{totalPrice} đ</td>
+              <td className="subtotal-price">{totalPrice} </td>
             </tr>
             <tr className="voucher">
               <td style={{fontWeight:"700"}}>Voucher</td>
@@ -75,7 +75,7 @@ const Checkout = ({ cart }) => {
             </tr>
             <tr className="total">
               <td style={{ width: "400px" }} />
-              <td className="total-price">{totalPrice} đ</td>
+              <td className="total-price">{totalPrice} </td>
             </tr>
           </tbody>
         </table>

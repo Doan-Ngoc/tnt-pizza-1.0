@@ -95,8 +95,6 @@ const Menu = ({
   saladDishes,
   drinkDishes,
   onAddToCart,
-  onIncreaseQuantity,
-  onDecreaseQuantity
 }) => {
   const renderDishes = (dishes) => {
     return dishes.map((dish) => (

@@ -10,6 +10,7 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart';
 import mockPopularDish from './mockData/mockPopularDish'
+import LoginRegister from './pages/LoginRegister/LoginRegister';
 
 const App = () => {
   const [popularDish, setPopularDish] = useState([])
@@ -42,7 +43,7 @@ const App = () => {
     fetch('https://646dc9739c677e23218a6722.mockapi.io/api/v1/khaivi')
       .then(response => response.json())
       .then(data => setAppetizerDishes(data));
-    console.log("Khai vị", appetizerDishes)
+    
 
     // Gọi API Mỳ ý
     fetch('https://6469c33a03bb12ac20922ba6.mockapi.io/api/pizza/product')
@@ -131,6 +132,7 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<Homepage onAddToCart={onAddToCart} />} />
+        <Route path='/login&register' element={<LoginRegister />}/>
         <Route path="/about-us" element={<AboutUs />} />
         <Route
           path="/menu"

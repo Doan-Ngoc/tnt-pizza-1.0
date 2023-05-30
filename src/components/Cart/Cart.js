@@ -10,6 +10,22 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
     navigate(to);
   };
 
+  const onNavigateToLoginRegisterPage = () => {
+    const to = `/login&register`;
+    navigate(to);
+  };
+
+  const onConditionalLogin = () => {
+    const successLoginStorage = JSON.parse(localStorage.getItem("successLogin"));
+    
+    if(successLoginStorage === true) {
+      onNavigateToCheckOut();
+    } else{
+      onNavigateToLoginRegisterPage();
+    }
+
+  }
+
   const getTotalPrice = (cart) => {
     let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -19,20 +35,20 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
 
     return totalPrice;
   };
-  const totalPrice = getTotalPrice(cart);
+  const totalPrice = getTotalPrice(cart).toLocaleString('vi', { style: 'currency', currency: 'VND' });
   const cartBodyElements = cart.map((cartItem, index) => {
     const { title, image, price, id, quantity } = cartItem;
     return (
       <tr key={id}>
-        <th style={{paddingTop:"20px"}} scope="row">{index+1}</th>
+        <th style={{ paddingTop: "20px" }} scope="row">{index + 1}</th>
 
-        <td style={{paddingTop:"20px"}}>{title}</td>
+        <td style={{ paddingTop: "20px" }}>{title}</td>
         <td >
           <img src={image} alt={title} style={{
             width: "50%", height: "50px"
           }} />
         </td>
-        <td style={{paddingTop:"20px"}}>{price}</td>
+        <td style={{ paddingTop: "20px" }}>{price.toLocaleString('vi', { style: 'currency', currency: 'VND' })}</td>
         <td>
           <button
             style={{ background: "#0b603d" }}
@@ -51,7 +67,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             +
           </button>
         </td>
-        <td style={{paddingTop:"20px"}}>{quantity * price}</td>
+        <td style={{ paddingTop: "20px" }}>{(quantity * price).toLocaleString('vi', { style: 'currency', currency: 'VND' })}</td>
         <td>
           <button
             style={{ background: "none", color: "#00814b", border: "none" }}
@@ -103,7 +119,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
           <h3 className="CartP">Cart Totals</h3>
           <div className="Cart">
             <div className="text">Subtotal</div>
-            <div className="text bill"><span>{totalPrice} đ</span></div>
+            <div className="text bill"><span>{totalPrice} </span></div>
           </div>
           <hr />
           <div className="Cart">
@@ -113,9 +129,9 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
           <hr />
           <div className="Cart">
             <div>Total</div>
-            <div className="text bill1 "><span>{totalPrice} đ</span></div>
+            <div className="text bill1 "><span>{totalPrice} </span></div>
           </div>
-          <button className="Proceed-to-checkout" onClick={onNavigateToCheckOut}>PROCEED TO
+          <button className="Proceed-to-checkout" onClick={onConditionalLogin}>PROCEED TO
             CHECKOUT</button>
         </div>
       </div>

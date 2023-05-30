@@ -15,7 +15,7 @@ const ProductItem = ({ productName, productImage, productPrice, productDescripti
 
         <h5 className="card-titled">{productName}</h5>
         <div className='d-flex justify-content-between mb-3'>
-          <p className="card-text">{productPrice} đ</p>
+          <p className="card-text">{productPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </p>
         </div>
         <Link to={`/dish-details/${id}`} className="card-img-top">
           <button className="btn btn-primary rounded-pill">
