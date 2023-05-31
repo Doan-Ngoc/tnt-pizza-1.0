@@ -134,6 +134,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "./ProductDetails.css";
+import './ProductDetailResponsive.css'
 
 const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, appetizerDishes, pastaDishes, saladDishes, drinkDishes, onAddToCart }) => {
   const { id } = useParams();
@@ -215,11 +216,11 @@ const ProductDetails = ({ popularDish, comboDishes, pizzaDishes, chickenDishes, 
             <div className="product-info">
               <div className="product-name">{title}</div>
               <div className="product-price-discount">
-                <span>{totalPrice} đ</span>
+                <span>{totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
               </div>
               <p className="product-description">{content}</p>
               {isPizzaDish && (
-              <div className="row mt-4">
+              <div className="row mt-4 option-container">
                 <div className="col-md-6">
                   <label htmlFor="size">Kích Thước</label>
                   <select

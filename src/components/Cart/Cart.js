@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Cart.css'
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity }) => {
-
+  // useEffect(() =>{onConditionalLogin();})
   useLayoutEffect(() => {
     window.scrollTo(0, 0); // Scrolls the page to the top
   }, []);
@@ -31,8 +31,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
     }
 
   }
-
-  onConditionalLogin();
+  
 
   const getTotalPrice = (cart) => {
     let totalPrice = 0;
@@ -61,7 +60,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
         </td>
         <td style={{ paddingTop: "20px" }}>{title}</td>
 
-        <td style={{ paddingTop: "20px" }}>{price}</td>
+        <td style={{ paddingTop: "20px" }}>{price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
         <td>
           <button
             style={{ background: "#0b603d" }}
@@ -80,7 +79,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             +
           </button>
         </td>
-        <td style={{ paddingTop: "20px" }}>{quantity * price}</td>
+        <td style={{ paddingTop: "20px" }}>{(quantity * price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
         <td>
           <button
             style={{ background: "none", color: "#00814b", border: "none" }}
@@ -122,7 +121,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td style={{ fontWeight: "600", fontSize: "1.1rem" }} >{totalPrice} đ</td>
+                  <td style={{ fontWeight: "600", fontSize: "1.1rem" }} >{totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </td>
                   <td></td>
                 </tr>
               </tbody>

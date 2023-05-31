@@ -1,5 +1,6 @@
 import React from 'react'
 import './Checkout.css'
+import './CheckoutResponsive.css'
 import { useLayoutEffect, useState, useEffect } from 'react';
 
 const Checkout = ({ cart }) => {
@@ -78,7 +79,7 @@ const Checkout = ({ cart }) => {
       <div className="billing-detail w-50 m-auto">
         <h2 className='mb-4 text-center'>Thông tin đơn hàng</h2>
         <form>
-          <div style={{ backgroundColor: "var(--background-color-1", padding: 30, borderRadius: '20px' }}>
+          <div className='form-container-checkout' style={{ backgroundColor: "var(--background-color-1", padding: 30, borderRadius: '20px' }}>
             <div className="input-name">
               <span htmlFor="fullname">Tên của bạn</span><span style={{ color: '#D6763C' }}>*</span>
               <div><input type="text" id="fullname" required /></div>
@@ -96,23 +97,23 @@ const Checkout = ({ cart }) => {
               <div><input type="email" id="mail" required /></div>
             </div>
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
-              <div>Tổng đơn hàng:</div>
-              <div className='subtotal-price'>{totalPrice} đ</div>
+              <div className='title-total-bill'>Tổng đơn hàng:</div>
+              <div className='subtotal-price'>{totalPrice} </div>
             </div>
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
-              <div>Phí giao hàng:</div>
-              <div className='subtotal-price'>{shippingFee} đ</div>
+              <div className='title-fee'>Phí giao hàng:</div>
+              <div className='subtotal-price'>{shippingFee.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </div>
             </div>
             <div className='voucher w-100 d-flex justify-content-between align-items-center'>
-              <div>Mã giảm giá:</div>
-              <div><input style={{ padding: "0px 10px" }} type='text' value={voucherCode}
+              <div className='title-voucher'>Mã giảm giá:</div>
+              <div><input className='input-voucher' style={{ padding: "0px 10px" }} type='text' value={voucherCode}
                 onChange={(e) => setVoucherCode(e.target.value)} />
-                <button type='button' className='rounded-pill ms-3' onClick={handleApply}>Áp dụng</button></div>
+                <button type='button' className='voucher-btn rounded-pill ms-3' onClick={handleApply}>Áp dụng</button></div>
             </div>
             {resultMessage && <div className='w-100 d-flex justify-content-end align-items-center discount-amount'>{resultMessage}</div>}
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
               <div>Tổng thanh toán:</div>
-              <div className='subtotal-price'>{finalPrice} đ</div>
+              <div className='subtotal-price'>{finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </div>
             </div>
             <div className='w-100 d-flex justify-content-center'>
               <button type="button" className="place-order rounded-pill"  id='place-order'>

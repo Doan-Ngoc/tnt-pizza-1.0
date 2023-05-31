@@ -100,7 +100,7 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity,
               +
             </button>
           </div>
-          <div className="price-item">{price}</div>
+          <div className="price-item">{price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
         </div>
       </div>
     </div>
@@ -173,7 +173,7 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity,
                 <div className=' py-4 px-5' style={{ backgroundColor: "var(--background-color-1)" }}>
                   <div className='total-price pb-4'>
                     <h4>Tổng tiền: </h4>
-                    <span className='totalPrice'>{totalPrice} đ</span>
+                    <span className='totalPrice'>{totalPrice} </span>
                   </div>
                   <button onClick={onNavigateToProductDetail} className='btn-checkout rounded-pill py-3' data-bs-dismiss="collapse">Thanh toán</button>
                 </div>

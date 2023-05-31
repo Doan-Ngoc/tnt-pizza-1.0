@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductItem.css';
+import './ProductItemResponsive.css'
 
 const ProductItem = ({ productName, productImage, productPrice, productDescription, id, onAddToCart }) => {
 
@@ -15,7 +16,7 @@ const ProductItem = ({ productName, productImage, productPrice, productDescripti
 
         <h5 className="card-title">{productName}</h5>
         <div className='price-and-btn d-flex justify-content-center align-items-center gap-4'>
-          <p className="card-text">{productPrice} đ</p>
+          <p className="card-text">{productPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </p>
           <Link to={`/dish-details/${id}`}>
             <button className="cart-item-buy-btn btn btn-primary rounded-pill">
               Mua ngay </button>

@@ -13,19 +13,21 @@ const LoginRegister = () => {
     password: ""
   });
   // const [login, setLogin] = useState({})
-  const [dataRegister, setDataRegister] = useState(() => {
-    const registerStorage = JSON.parse( localStorage.getItem("valueRegister"));
-    return registerStorage
-  })
+  // const [dataRegister, setDataRegister] = useState(() => {
+  //   const registerStorage = JSON.parse( localStorage.getItem("valueRegister"));
+  //   return registerStorage
+  // })
+  useEffect(() => {
+    window.localStorage.setItem("successLogin", JSON.stringify(successLogin));
+  }, [successLogin])
 
+  const [dataRegister, setDataRegister] = useState({})
 
   useEffect(() => {
     window.localStorage.setItem("valueRegister", JSON.stringify(dataRegister));
   }, [dataRegister])
 
-  useEffect(() => {
-    window.localStorage.setItem("successLogin", JSON.stringify(successLogin));
-  }, [successLogin])
+
 
   const navigate = useNavigate();
 
@@ -34,7 +36,13 @@ const LoginRegister = () => {
     navigate(to);
   };
 
-  useEffect(()=>{})
+  useEffect(() => {
+    if (valueLogin.userName !== dataRegister.username || valueLogin.password !== dataRegister.password) {
+      setSuccessLogin(false)
+    }else{
+      setSuccessLogin(true)
+    }
+  },[valueLogin, dataRegister])
   const onFormSubmitLoginHandle = (e) => {
     e.preventDefault();
     onCheckPassword()
@@ -54,7 +62,7 @@ const LoginRegister = () => {
   }
 
   const onCheckPassword = () => {
-    if (valueLogin.userName !== dataRegister.username && valueLogin.password !== dataRegister.password) {
+    if (valueLogin.userName !== dataRegister.username || valueLogin.password !== dataRegister.password) {
       setSuccessLogin(false)
       alert("Đăng nhập không đúng. Xin vui lòng nhập lại")
 
@@ -66,6 +74,8 @@ const LoginRegister = () => {
   }
 
   console.log("successLogin", successLogin)
+
+  // console.log("successLogin", successLogin)
   const onClickCardLogin = () => {
     setCardLogin(true)
     setCardRegister(false)

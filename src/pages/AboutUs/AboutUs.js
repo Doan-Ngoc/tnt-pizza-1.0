@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Delivery from '../Homepage/Delivery';
+import './AboutUsResponsive.css'
 import "./AboutUs.css"
 import { useLayoutEffect } from 'react';
 
