@@ -6,28 +6,27 @@ const Checkout = ({ cart }) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0); // Scrolls the page to the top
   }, []);
-  const getTotalPrice = (cart) => {
 
-    
-    window.$(function() {
-      window.$("#place-order").click(function() {
-      if ( window.$("#fullname").val() != "" &&  window.$("#address").val() != ""
-      &&  window.$("#phone").val() != "" &&  window.$("#email").val() != "") {
-        window.$('#exampleModal').modal('show'); 
-      }
-    });
+  /* Hiển thị modal */
+  window.$(function() {
+    window.$("#place-order").click(function() {
+    if ( window.$("#fullname").val() != "" &&  window.$("#address").val() != ""
+    &&  window.$("#phone").val() != "" &&  window.$("#email").val() != "") {
+      window.$('#exampleModal').modal('show'); 
+    }
   });
+});
 
 
-    let totalPrice = 0;
+  let totalPrice = 0;
+  const getTotalPrice = (cart) => {
     for (let i = 0; i < cart.length; i++) {
       const cartItem = cart[i];
       totalPrice += cartItem.price * cartItem.quantity;
     }
-
     return totalPrice;
   };
-  const totalPrice = getTotalPrice(cart).toLocaleString('vi', {style : 'currency', currency : 'VND'});
+  const totalPriceInVnd = getTotalPrice(cart).toLocaleString('vi', {style : 'currency', currency : 'VND'});
 
   const cartBodyElements = cart.map((cartItem, index) => {
     const { title, price, id, quantity } = cartItem;
@@ -97,7 +96,7 @@ const Checkout = ({ cart }) => {
             </div>
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
               <div>Tổng đơn hàng:</div>
-              <div className='subtotal-price'>{totalPrice} đ</div>
+              <div className='subtotal-price'>{totalPriceInVnd} đ</div>
             </div>
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
               <div>Phí giao hàng:</div>

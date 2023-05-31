@@ -6,6 +6,11 @@ import NewDish from './NewDish';
 import PopularDish from './PopularDish';
 import Delivery from './Delivery';
 import { useLayoutEffect } from 'react';
+import './why-us-responsive.css'
+import './delivery-responsive.css'
+import './new-dish-responsive.css'
+import './popular-dish-responsive.css'
+
 
 const Homepage = ({ onAddToCart, appetizerDishes, pastaDishes, pizzaDishes, saladDishes }) => {
   useLayoutEffect(() => {

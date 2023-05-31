@@ -11,20 +11,20 @@ const PopularDish = ({ onAddToCart, appetizerDishes, pizzaDishes, pastaDishes, s
     return (
       <div className="row">
 
-        <ul className="nav nav-tabs menu_tab" id="myTab" role="tablist">
-          <li className="nav-item">
+        <ul className="nav nav-tabs menu_tab row" id="myTab" role="tablist">
+          <li className="nav-item col-3">
             <a className={`nav-link ${activeTab === 'pizza' ? 'active' : ''}`} id="pizza-tab" data-bs-toggle="tab" href="#pizza" role="tab"
               onClick={() => handleTabClick('pizza')}>Pizza</a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item col-3">
             <a className="nav-link" id="spaghetti-tab" data-bs-toggle="tab" href="#spaghetti" role="tab"
               onClick={() => handleTabClick('pasta')} >Mỳ Ý</a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item col-3">
             <a className={`nav-link ${activeTab === 'appetizer' ? 'active' : ''}`} id="appetizer-tab" data-bs-toggle="tab" role="tab" href="#appetizer"
               onClick={() => handleTabClick('appetizer')}>Khai vị</a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item col-3">
             <a className="nav-link" id="salad-tab" data-bs-toggle="tab" href="#salad" role="tab"
               onClick={() => handleTabClick('salad')}>Salad</a>
           </li>
@@ -61,7 +61,7 @@ const PopularDish = ({ onAddToCart, appetizerDishes, pizzaDishes, pastaDishes, s
   const popularPizzaRender = popularPizzaList && popularPizzaList.map(dish => {
     const { title, image, price, content, id } = dish
     return (
-      <div className=' col-lg-3 col-md-6 col-sm-12'>
+      <div className=' col-lg-3 col-xxl-3 col-md-6 col-sm-12'>
         <ProductItem
           productName={title}
           productImage={image}

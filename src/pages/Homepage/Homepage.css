@@ -1,8 +1,10 @@
+@media only screen and (min-width: 1280px)  {
 /*Promotion Slider*/
 .promotion-slider {
   padding: 30px;
   height: 100vh;
   margin: 0 auto;
+  width: 100vw !important
 }
 
 .carousel-inner {
@@ -18,12 +20,14 @@
 
 
 /*Why Us*/
+
 .why-us,
 .new-dish {
   margin: 70px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 75%
 }
 
 .title {
@@ -96,9 +100,10 @@
   to {
     transform: rotate(360deg);
   }
-}
+}}
 
 /*New Dish*/
+@media only screen and (min-width: 1280px) {
 .new-dish-container {
   margin-top: 200px;
   margin-bottom: 100px;
@@ -169,6 +174,9 @@
   font-weight: 500;
   color: white !important;
 }
+.new-dish a, .delivery a {
+  font-size: 1.1rem !important;
+}
 
 .order-now-btn {
   color: white !important;
@@ -178,8 +186,11 @@
 .new-dish button:hover,
 .delivery button:hover {
   background-color: #e8b234;
-}
+}}
 
+
+
+@media only screen and (min-width: 768px) {
 /*Popular Dish Navbar*/
 .menu_tab {
   margin: 0 auto;
@@ -290,6 +301,7 @@
 .see-all-menu:hover .fa {
   display: inline-block;
 }
+}
 
 /*Coupon*/
 .coupon-img {
@@ -298,7 +310,7 @@
   margin: 120px auto !important;
 }
 
-
+@media only screen and (min-width: 1280px) {
 /*Delivery*/
 .delivery-container {
   background-repeat: no-repeat;
@@ -313,6 +325,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 75% !important
 }
 
 .delivery-img {
@@ -355,4 +368,13 @@
 .delivery span {
   font-size: 1.2rem;
   font-weight: 500;
+}}
+
+.delivery button {
+  font-size: 1.2rem !important;
+  text-decoration: none !important;
+}
+
+.delivery a {
+  text-decoration: none;
 }

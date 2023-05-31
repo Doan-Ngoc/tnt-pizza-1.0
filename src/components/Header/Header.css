@@ -1,14 +1,18 @@
-.header {
+@media only screen and (min-width: 1280px) {.header {
     background-color: var(--primary-color-1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar {
-    width: 75%;
-    margin: 0 auto;
-    padding: 0 !important
+    padding: 0 !important;
+    margin: auto 0 !important;
+    width: 75vw;
+    display: flex;
+    gap: 50px
 }
 
 .header-logo {
@@ -20,19 +24,21 @@
     height: 100%;
     width: 100%;
 }
-
+ .navbar-collapse {
+    width: 200px !important
+ }
 .navbar-nav {
-    flex-grow: 1;
     display: flex;
-    justify-content: center;
+    justify-content: center !important;;
     background-color: #0b603d;
     border-radius: 10%;
-    margin: 0 20px;
+    padding: 0 auto;
+    width: 100%
 }
 
 .nav-link {
     color: white !important;
-    font-size: 1.4rem !important;
+    font-size: 1.3rem !important;
 }
 
 .nav-link:hover {
@@ -40,6 +46,12 @@
 }
 
 /*Cart */
+.search-and-cart {
+    display: flex;
+    gap: 1.5rem
+}
+
+/*Cart button*/
 .cart-container {
     border: 2px solid var(--primary-color-1)
 }
@@ -47,7 +59,7 @@
 .cart-btn {
     background-color: white !important;
     color: var(--primary-color-1) !important;
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
 }
 
 .cart-quantity {
@@ -59,11 +71,12 @@
     height: 20px;
     text-align: center;
     line-height: 20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .fa-shopping-cart {
-    color: var(--primary-color-1)
+    color: var(--primary-color-1);
+    font-size: 1.1rem;
 }
 
 .cart-container {
@@ -103,7 +116,6 @@
     background: none;
     color: #0b603d;
     transition: all 0.3s;
-    font-size: ;
 }
 
 .close:hover {
@@ -164,6 +176,11 @@
 
 .search-container {
     position: relative;
+    max-width: 200px
+  }
+
+  .search-container input {
+    width: 100%
   }
   
   .search-input {
@@ -174,7 +191,6 @@
     border: 1px solid #ccc;
     
   }
-
 
   .search-icon {
     position: absolute;
@@ -218,4 +234,4 @@
   .search-result-item:hover {
     background-color: #f5f5f5;
   }
-  
+}
