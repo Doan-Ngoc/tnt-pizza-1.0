@@ -22,7 +22,10 @@ const App = () => {
   const [pastaDishes, setPastaDishes] = useState([]);
   const [saladDishes, setSaladDishes] = useState([]);
   const [drinkDishes, setDrinkDishes] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storedCartList = localStorage.getItem("cart")
+    return storedCartList ? JSON.parse(storedCartList) : [];
+  });
   useEffect(() => {
     // Gọi API Combo
     fetch('https://646dc9739c677e23218a6722.mockapi.io/api/v1/combo')
@@ -66,6 +69,11 @@ const App = () => {
   useEffect(() => {
     setPopularDish(mockPopularDish);
   }, [])
+
+  /* Lưu cart list vào localStorage*/ 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart])
 
 
   const onAddToCart = (productId) => {

@@ -1,5 +1,7 @@
 
+
 import './Header.css'
+import './Header-responsive.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { FaTrashAlt } from "react-icons/fa";
 import { Link as SearchResultLink } from 'react-router-dom';
@@ -113,9 +115,29 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity,
           <Link to="/"><img className='header-logo' src="/logo.png" /></Link>
         </div>
 
-         {/* Search */}
-            
-      <div className="search-container">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav gap-3 rounded-pill">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/">Trang chủ</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about-us">Về chúng tôi</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/menu">Menu</Link>
+            </li>
+          </ul>
+          {/* <Link to={'/login&register'}>
+            <FaUserAlt style={{color:"white"}}/>
+          </Link> */}
+        </div>
+
+          <div className='search-and-cart'>
+          {/* Search */}
+          <div className="search-container">
         <input
           type="text"
           placeholder="Tìm kiếm..."
@@ -140,26 +162,9 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity,
                 ))}
               </div>
             ))}
-
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav gap-5 rounded-pill">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/">Trang chủ</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about-us">Về chúng tôi</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/menu">Menu</Link>
-            </li>
-          </ul>
-          {/* <Link to={'/login&register'}>
-            <FaUserAlt style={{color:"white"}}/>
-          </Link> */}
-          <button className='btn rounded-pill cart-btn d-flex align-items-center gap-1 mx-5' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      
+      
+      <button className='btn rounded-pill cart-btn d-flex align-items-center gap-1' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             <i className="fa fa-shopping-cart mr-2"></i>
             Giỏ hàng
             <span className='cart-quantity'>{lengthCart}</span>
@@ -184,7 +189,9 @@ const Header = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity,
 
 
           </div>
-        </div>
+          </div>
+
+
       </nav>
     </div>
   )

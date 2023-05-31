@@ -18,7 +18,7 @@ const WhyUs = () => {
   }, []);
 
   return (
-    <div className='why-us w-75'>
+    <div className='why-us'>
 
       <div className='why-us-img d-flex justify-content-center'>
         <img className='scroll-img img-fluid' id="scroll-image" src='images\homepage\scroll-image.png' />

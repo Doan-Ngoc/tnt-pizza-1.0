@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <div className='footer d-flex justify-content-center'>
-      <div className='d-flex w-75 justify-content-between align-items-center gap-3'>
+      <div className='d-flex footer-container w-75 justify-content-between align-items-center gap-3'>
         <img src="/logo.png" />
         <div className='follow-us d-flex gap-3'>
           <span>Follow Us:</span>

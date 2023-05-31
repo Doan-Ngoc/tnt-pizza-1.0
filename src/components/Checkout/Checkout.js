@@ -7,28 +7,27 @@ const Checkout = ({ cart }) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0); // Scrolls the page to the top
   }, []);
-  const getTotalPrice = (cart) => {
 
-    
-    window.$(function() {
-      window.$("#place-order").click(function() {
-      if ( window.$("#fullname").val() != "" &&  window.$("#address").val() != ""
-      &&  window.$("#phone").val() != "" &&  window.$("#email").val() != "") {
-        window.$('#exampleModal').modal('show'); 
-      }
-    });
+  /* Hiển thị modal */
+  window.$(function() {
+    window.$("#place-order").click(function() {
+    if ( window.$("#fullname").val() != "" &&  window.$("#address").val() != ""
+    &&  window.$("#phone").val() != "" &&  window.$("#email").val() != "") {
+      window.$('#exampleModal').modal('show'); 
+    }
   });
+});
 
 
-    let totalPrice = 0;
+  let totalPrice = 0;
+  const getTotalPrice = (cart) => {
     for (let i = 0; i < cart.length; i++) {
       const cartItem = cart[i];
       totalPrice += cartItem.price * cartItem.quantity;
     }
-
     return totalPrice;
   };
-  const totalPrice = getTotalPrice(cart).toLocaleString('vi', {style : 'currency', currency : 'VND'});
+  const totalPriceInVnd = getTotalPrice(cart).toLocaleString('vi', {style : 'currency', currency : 'VND'});
 
   const cartBodyElements = cart.map((cartItem, index) => {
     const { title, price, id, quantity } = cartItem;
@@ -42,8 +41,8 @@ const Checkout = ({ cart }) => {
 
   /*Tính tiền ship*/
   let shippingFee = 0
-  if (totalPrice <= 200000) {
-    shippingFee = 30000
+  if (totalPrice <= 300000) {
+    shippingFee = 20000
   }
   else {
     shippingFee = 0
@@ -60,8 +59,8 @@ const Checkout = ({ cart }) => {
   let priceUpdated = 0
   const handleApply = () => {
     if (voucherCode === 'anngon') {
-      setResultMessage('-10,000 đ');
-      setDiscountAmount(10000);
+      setResultMessage('-30,000 đ');
+      setDiscountAmount(30000);
     } else {
       setResultMessage('Mã giảm giá không hợp lệ');
       setDiscountAmount(0);
