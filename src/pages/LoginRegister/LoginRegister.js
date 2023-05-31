@@ -58,7 +58,7 @@ const LoginRegister = () => {
   const onFormSubmitRegisterHandle = (dataRegister) => {
     console.log("dataLogin", dataRegister)
     setDataRegister(dataRegister)
-
+    alert("Đăng ký thành công")
   }
 
   const onCheckPassword = () => {

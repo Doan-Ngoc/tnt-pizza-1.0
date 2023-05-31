@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import './Cart.css'
+import './CartResponsive.css'
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
@@ -14,13 +15,14 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
   const onNavigateToCheckOut = () => {
     const to = `/checkout`;
     navigate(to);
+    // onConditionalLogin();
   };
 
   const onNavigateToLoginRegisterPage = () => {
     const to = `/login&register`;
     navigate(to);
   };
-
+ 
   const onConditionalLogin = () => {
     const successLoginStorage = JSON.parse(localStorage.getItem("successLogin"));
     
@@ -29,10 +31,8 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
     } else{
       onNavigateToLoginRegisterPage();
     }
-
   }
   
-
   const getTotalPrice = (cart) => {
     let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -101,7 +101,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             <span>Giỏ hàng của bạn</span>
           </h3>
           <div>
-            <table className="table table-car my-5 text-center">
+            <table className="table table-cart my-5 text-center">
               <thead>
                 <tr>
                   <th scope="col" style={{ width: "130px" }}>#</th>
@@ -128,7 +128,7 @@ const Cart = ({ cart, onDeleteProduct, onDecreaseQuantity, onIncreaseQuantity })
             </table>
           </div>
           <div className='w-100 d-flex justify-content-center'>
-            <button className="Proceed-to-checkout rounded-pill" onClick={onNavigateToLoginRegisterPage}>
+            <button className="Proceed-to-checkout rounded-pill" onClick={onConditionalLogin}>
               Thanh toán
             </button>
           </div>
