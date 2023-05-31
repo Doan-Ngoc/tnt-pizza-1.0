@@ -97,7 +97,7 @@ const Checkout = ({ cart }) => {
             </div>
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
               <div className='title-total-bill'>Tổng đơn hàng:</div>
-              <div className='subtotal-price'>{totalPrice} </div>
+              <div className='subtotal-price'>{totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </div>
             </div>
             <div className='subtotal w-100 d-flex justify-content-between align-items-center'>
               <div className='title-fee'>Phí giao hàng:</div>
