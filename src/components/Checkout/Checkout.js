@@ -40,8 +40,8 @@ const Checkout = ({ cart }) => {
 
   /*Tính tiền ship*/
   let shippingFee = 0
-  if (totalPrice <= 200000) {
-    shippingFee = 30000
+  if (totalPrice <= 300000) {
+    shippingFee = 20000
   }
   else {
     shippingFee = 0
@@ -58,8 +58,8 @@ const Checkout = ({ cart }) => {
   let priceUpdated = 0
   const handleApply = () => {
     if (voucherCode === 'anngon') {
-      setResultMessage('-10,000 đ');
-      setDiscountAmount(10000);
+      setResultMessage('-30,000 đ');
+      setDiscountAmount(30000);
     } else {
       setResultMessage('Mã giảm giá không hợp lệ');
       setDiscountAmount(0);
